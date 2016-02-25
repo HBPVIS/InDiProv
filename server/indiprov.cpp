@@ -19,7 +19,7 @@
 using namespace std;
 InDiProv::InDiProv(){
     driver=sql::mysql::get_mysql_driver_instance();
-    con = driver->connect("tcp://127.0.0.1:3306", "root", "597366vm");
+    con = driver->connect("tcp://127.0.0.1:3306", "root", "pass");
 }
 InDiProv::~InDiProv()
 {
