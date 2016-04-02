@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_prov_utils_1_1_was_informed_by" kind="struct" prot="public">
+    <compoundname>ProvUtils::WasInformedBy</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_informed_by_1ac34a2f8f42c52c7a1bf240182cb1070b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasInformedBy::informed</definition>
+        <argsstring></argsstring>
+        <name>informed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="98" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a9c131081cbb7f6494d6d307d12559ddf" compoundref="indiprovclient_8cpp" startline="574" endline="601">InDiProvClient::deSerializeWasInformedBys</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_informed_by_1a614d109abfeacef33acff0701784efa9" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasInformedBy::informant</definition>
+        <argsstring></argsstring>
+        <name>informant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="99" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a9c131081cbb7f6494d6d307d12559ddf" compoundref="indiprovclient_8cpp" startline="574" endline="601">InDiProvClient::deSerializeWasInformedBys</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_informed_by_1adaa45666484c33890b6c384736c63898" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasInformedBy::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="100" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="100" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a9c131081cbb7f6494d6d307d12559ddf" compoundref="indiprovclient_8cpp" startline="574" endline="601">InDiProvClient::deSerializeWasInformedBys</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_informed_by_1a5ab1cf3b00d8c91ba8f6ce3c862cc1c4" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasInformedBy::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="101" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="101" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a9c131081cbb7f6494d6d307d12559ddf" compoundref="indiprovclient_8cpp" startline="574" endline="601">InDiProvClient::deSerializeWasInformedBys</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_informed_by_1ad3d5d14bb09c1bab4e5218ca30d60b14" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasInformedBy::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="102" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="102" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a9c131081cbb7f6494d6d307d12559ddf" compoundref="indiprovclient_8cpp" startline="574" endline="601">InDiProvClient::deSerializeWasInformedBys</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="97" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="97" bodyend="103"/>
+    <listofallmembers>
+      <member refid="struct_prov_utils_1_1_was_informed_by_1ad3d5d14bb09c1bab4e5218ca30d60b14" prot="public" virt="non-virtual"><scope>ProvUtils::WasInformedBy</scope><name>ID</name></member>
+      <member refid="struct_prov_utils_1_1_was_informed_by_1a614d109abfeacef33acff0701784efa9" prot="public" virt="non-virtual"><scope>ProvUtils::WasInformedBy</scope><name>informant</name></member>
+      <member refid="struct_prov_utils_1_1_was_informed_by_1ac34a2f8f42c52c7a1bf240182cb1070b" prot="public" virt="non-virtual"><scope>ProvUtils::WasInformedBy</scope><name>informed</name></member>
+      <member refid="struct_prov_utils_1_1_was_informed_by_1adaa45666484c33890b6c384736c63898" prot="public" virt="non-virtual"><scope>ProvUtils::WasInformedBy</scope><name>label</name></member>
+      <member refid="struct_prov_utils_1_1_was_informed_by_1a5ab1cf3b00d8c91ba8f6ce3c862cc1c4" prot="public" virt="non-virtual"><scope>ProvUtils::WasInformedBy</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

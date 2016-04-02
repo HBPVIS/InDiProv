@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_prov_utils_1_1_was_attributed_to" kind="struct" prot="public">
+    <compoundname>ProvUtils::WasAttributedTo</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_attributed_to_1ad184c9fd74c7380da78c64720d02f135" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasAttributedTo::entID</definition>
+        <argsstring></argsstring>
+        <name>entID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="60" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="60" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a752ed9ff959b75d702f72346111d1676" compoundref="indiprovclient_8cpp" startline="514" endline="541">InDiProvClient::deSerializeWasAttributedTos</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_attributed_to_1abc7f19f78499d04010b362c336cea8cd" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasAttributedTo::agentID</definition>
+        <argsstring></argsstring>
+        <name>agentID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="61" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a752ed9ff959b75d702f72346111d1676" compoundref="indiprovclient_8cpp" startline="514" endline="541">InDiProvClient::deSerializeWasAttributedTos</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_attributed_to_1a5c9fd5945f07d753fe4eb146268c7b3f" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasAttributedTo::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="62" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a752ed9ff959b75d702f72346111d1676" compoundref="indiprovclient_8cpp" startline="514" endline="541">InDiProvClient::deSerializeWasAttributedTos</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_attributed_to_1a0f0bb67866aaed93ef28d366f31ebede" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasAttributedTo::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="63" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a752ed9ff959b75d702f72346111d1676" compoundref="indiprovclient_8cpp" startline="514" endline="541">InDiProvClient::deSerializeWasAttributedTos</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_attributed_to_1a8d6a730eeb6d8ecb68ae449e64c20634" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasAttributedTo::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="64" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1a752ed9ff959b75d702f72346111d1676" compoundref="indiprovclient_8cpp" startline="514" endline="541">InDiProvClient::deSerializeWasAttributedTos</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="59" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="59" bodyend="65"/>
+    <listofallmembers>
+      <member refid="struct_prov_utils_1_1_was_attributed_to_1abc7f19f78499d04010b362c336cea8cd" prot="public" virt="non-virtual"><scope>ProvUtils::WasAttributedTo</scope><name>agentID</name></member>
+      <member refid="struct_prov_utils_1_1_was_attributed_to_1ad184c9fd74c7380da78c64720d02f135" prot="public" virt="non-virtual"><scope>ProvUtils::WasAttributedTo</scope><name>entID</name></member>
+      <member refid="struct_prov_utils_1_1_was_attributed_to_1a8d6a730eeb6d8ecb68ae449e64c20634" prot="public" virt="non-virtual"><scope>ProvUtils::WasAttributedTo</scope><name>ID</name></member>
+      <member refid="struct_prov_utils_1_1_was_attributed_to_1a5c9fd5945f07d753fe4eb146268c7b3f" prot="public" virt="non-virtual"><scope>ProvUtils::WasAttributedTo</scope><name>label</name></member>
+      <member refid="struct_prov_utils_1_1_was_attributed_to_1a0f0bb67866aaed93ef28d366f31ebede" prot="public" virt="non-virtual"><scope>ProvUtils::WasAttributedTo</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

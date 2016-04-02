@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_prov_utils" kind="class" prot="public">
+    <compoundname>ProvUtils</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+    <innerclass refid="struct_prov_utils_1_1_activity" prot="public">ProvUtils::Activity</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_agent" prot="public">ProvUtils::Agent</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_entity" prot="public">ProvUtils::Entity</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_used" prot="public">ProvUtils::Used</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_associated_with" prot="public">ProvUtils::WasAssociatedWith</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_attributed_to" prot="public">ProvUtils::WasAttributedTo</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_derived_from" prot="public">ProvUtils::WasDerivedFrom</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_ended_by" prot="public">ProvUtils::WasEndedBy</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_generated_by" prot="public">ProvUtils::WasGeneratedBy</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_informed_by" prot="public">ProvUtils::WasInformedBy</innerclass>
+    <innerclass refid="struct_prov_utils_1_1_was_started_by" prot="public">ProvUtils::WasStartedBy</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_prov_utils_1a1c050ce900080f4b2bf9731b7799c025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProvUtils::ProvUtils</definition>
+        <argsstring>()</argsstring>
+        <name>ProvUtils</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="106" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.cpp" bodystart="3" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_prov_utils_1aef1d5cc117ebf195fc29cb85719ec0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProvUtils::~ProvUtils</definition>
+        <argsstring>()</argsstring>
+        <name>~ProvUtils</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="107" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="6" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="5" bodyend="108"/>
+    <listofallmembers>
+      <member refid="class_prov_utils_1a1c050ce900080f4b2bf9731b7799c025" prot="public" virt="non-virtual"><scope>ProvUtils</scope><name>ProvUtils</name></member>
+      <member refid="class_prov_utils_1aef1d5cc117ebf195fc29cb85719ec0f0" prot="public" virt="non-virtual"><scope>ProvUtils</scope><name>~ProvUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

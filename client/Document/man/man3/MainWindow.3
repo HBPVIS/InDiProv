@@ -1,0 +1,54 @@
+.TH "MainWindow" 3 "Sat Apr 2 2016" "InDivProvClient" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mainwindow\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~MainWindow\fP ()"
+.br
+.ti -1c
+.RI "void \fBESender\fP (zmq::context_t *context, vector< string > mycmd)"
+.br
+.ti -1c
+.RI "string \fBserializeToJson\fP (vector< string > commandVec)"
+.br
+.ti -1c
+.RI "void \fBjson_parse\fP (json_object *jobj)"
+.br
+.ti -1c
+.RI "void \fBtestFunc\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MainWindow::MainWindow (QWidget *parent = \fC0\fP)\fC [explicit]\fP"
+
+.SS "MainWindow::~MainWindow ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::ESender (zmq::context_t *context, vector< string >mycmd)"
+
+.SS "void MainWindow::json_parse (json_object *jobj)"
+
+.SS "string MainWindow::serializeToJson (vector< string >commandVec)"
+
+.SS "void MainWindow::testFunc ()"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for InDivProvClient from the source code\&.

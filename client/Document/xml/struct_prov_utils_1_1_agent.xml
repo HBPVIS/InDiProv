@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_prov_utils_1_1_agent" kind="struct" prot="public">
+    <compoundname>ProvUtils::Agent</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_prov_utils_1_1_agent_1a3a9574d1061f33684ff8fb85d5a9ed60" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Agent::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="24" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1af3dd5119f070e70782d5d8cbeb15b3c4" compoundref="indiprovclient_8cpp" startline="385" endline="410">InDiProvClient::deSerializeAgents</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_agent_1a950c27a3d264ecb209fbb09151a86148" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Agent::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="25" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1af3dd5119f070e70782d5d8cbeb15b3c4" compoundref="indiprovclient_8cpp" startline="385" endline="410">InDiProvClient::deSerializeAgents</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_agent_1a1afa29b1a7cc51f53535d392a09914ac" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Agent::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="26" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1af3dd5119f070e70782d5d8cbeb15b3c4" compoundref="indiprovclient_8cpp" startline="385" endline="410">InDiProvClient::deSerializeAgents</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_agent_1a306ec064cb69d3a6ac4fc0cf77c10b53" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Agent::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="27" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1af3dd5119f070e70782d5d8cbeb15b3c4" compoundref="indiprovclient_8cpp" startline="385" endline="410">InDiProvClient::deSerializeAgents</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="23" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="23" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_prov_utils_1_1_agent_1a306ec064cb69d3a6ac4fc0cf77c10b53" prot="public" virt="non-virtual"><scope>ProvUtils::Agent</scope><name>ID</name></member>
+      <member refid="struct_prov_utils_1_1_agent_1a3a9574d1061f33684ff8fb85d5a9ed60" prot="public" virt="non-virtual"><scope>ProvUtils::Agent</scope><name>label</name></member>
+      <member refid="struct_prov_utils_1_1_agent_1a950c27a3d264ecb209fbb09151a86148" prot="public" virt="non-virtual"><scope>ProvUtils::Agent</scope><name>location</name></member>
+      <member refid="struct_prov_utils_1_1_agent_1a1afa29b1a7cc51f53535d392a09914ac" prot="public" virt="non-virtual"><scope>ProvUtils::Agent</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

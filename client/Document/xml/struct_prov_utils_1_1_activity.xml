@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_prov_utils_1_1_activity" kind="struct" prot="public">
+    <compoundname>ProvUtils::Activity</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1a559304d758e8a9f3b89365d7fd441522" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::startTime</definition>
+        <argsstring></argsstring>
+        <name>startTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="16" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="16" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1ab36fceb1a61c132c1251ed7f3843c9ed" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::endTime</definition>
+        <argsstring></argsstring>
+        <name>endTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="17" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1afb1b7e2ef615e4fcf11aa74e2340ab7f" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="18" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1a87753df0d0a14b8af93b0210fde66261" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="19" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1a210efd6ae1c8bf6ef64265374d745b93" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="20" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_activity_1a0e43209e61d327059162c0d1951aef6c" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::Activity::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="21" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ae99802bda1135179aa50a4413ef3c4e6" compoundref="indiprovclient_8cpp" startline="355" endline="384">InDiProvClient::deSerializeActivities</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="15" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="15" bodyend="22"/>
+    <listofallmembers>
+      <member refid="struct_prov_utils_1_1_activity_1ab36fceb1a61c132c1251ed7f3843c9ed" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>endTime</name></member>
+      <member refid="struct_prov_utils_1_1_activity_1a0e43209e61d327059162c0d1951aef6c" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>ID</name></member>
+      <member refid="struct_prov_utils_1_1_activity_1afb1b7e2ef615e4fcf11aa74e2340ab7f" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>label</name></member>
+      <member refid="struct_prov_utils_1_1_activity_1a87753df0d0a14b8af93b0210fde66261" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>location</name></member>
+      <member refid="struct_prov_utils_1_1_activity_1a559304d758e8a9f3b89365d7fd441522" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>startTime</name></member>
+      <member refid="struct_prov_utils_1_1_activity_1a210efd6ae1c8bf6ef64265374d745b93" prot="public" virt="non-virtual"><scope>ProvUtils::Activity</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_prov_utils_1_1_was_derived_from" kind="struct" prot="public">
+    <compoundname>ProvUtils::WasDerivedFrom</compoundname>
+    <includes refid="provutils_8h" local="no">provutils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1ad38716ef9c4e7e45816ac92fc3e4076b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::genEntID</definition>
+        <argsstring></argsstring>
+        <name>genEntID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="50" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1a8817cd1561cf086b54b5b90f510375c8" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::usdEntID</definition>
+        <argsstring></argsstring>
+        <name>usdEntID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="51" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="51" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1a604103420bd0c24bb2eddfad7628753e" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::actID</definition>
+        <argsstring></argsstring>
+        <name>actID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="52" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1a371c5f41d548fab8b774148cd55c3b8e" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::genID</definition>
+        <argsstring></argsstring>
+        <name>genID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="53" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1aea9320eb588222ecf79a70528bbe3ae3" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::usgID</definition>
+        <argsstring></argsstring>
+        <name>usgID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="54" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="54" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1ac81c10113fc119b56b62b208534d6391" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="55" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="55" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1a3b9eb43df6283b72c988876f5c471aad" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="56" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_prov_utils_1_1_was_derived_from_1acd6605669cb7cd025450656b03b752d2" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ProvUtils::WasDerivedFrom::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="57" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="class_in_di_prov_client_1ab68be507c04d2e4c27565489f045ac48" compoundref="indiprovclient_8cpp" startline="480" endline="513">InDiProvClient::deSerializeWasDerivedFroms</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohammad/Downloads/InDivProvClient/provutils.h" line="49" column="1" bodyfile="/home/mohammad/Downloads/InDivProvClient/provutils.h" bodystart="49" bodyend="58"/>
+    <listofallmembers>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1a604103420bd0c24bb2eddfad7628753e" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>actID</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1ad38716ef9c4e7e45816ac92fc3e4076b" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>genEntID</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1a371c5f41d548fab8b774148cd55c3b8e" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>genID</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1acd6605669cb7cd025450656b03b752d2" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>ID</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1ac81c10113fc119b56b62b208534d6391" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>label</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1a3b9eb43df6283b72c988876f5c471aad" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>type</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1a8817cd1561cf086b54b5b90f510375c8" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>usdEntID</name></member>
+      <member refid="struct_prov_utils_1_1_was_derived_from_1aea9320eb588222ecf79a70528bbe3ae3" prot="public" virt="non-virtual"><scope>ProvUtils::WasDerivedFrom</scope><name>usgID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

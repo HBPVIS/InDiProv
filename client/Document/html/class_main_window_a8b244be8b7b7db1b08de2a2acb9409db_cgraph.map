@@ -1,0 +1,19 @@
+<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
+<area shape="rect" id="node2" href="$class_main_window.html#ae4b6bf5d06819fab861e9e99b5a88699" title="MainWindow::testFunc" alt="" coords="235,335,391,361"/>
+<area shape="rect" id="node3" href="$class_in_di_prov_client.html#ae2e0dd71c6b83274706f1bb26742cabe" title="InDiProvClient::loadWF" alt="" coords="485,461,645,488"/>
+<area shape="rect" id="node6" href="$class_in_di_prov_client.html#abc388b71a141493921a6e51f18b60da8" title="Creating new Entity returns the unique id of new Entity if the function is successful, else returns &#45;1. " alt="" coords="482,512,649,539"/>
+<area shape="rect" id="node7" href="$class_in_di_prov_client.html#a8a2e2aaf3f8b6a8e31f31af31603b681" title="Creating new Activity returns the unique id of new Activity if the function is successful, else returns &#45;1. " alt="" coords="477,563,654,589"/>
+<area shape="rect" id="node8" href="$class_in_di_prov_client.html#a6844299f790bb3e1f460b64fca2a2585" title="InDiProvClient::getCurrentTime" alt="" coords="463,664,668,691"/>
+<area shape="rect" id="node9" href="$class_in_di_prov_client.html#a75ad36497b77b81841cf8cf411aea244" title="Creating new Agent returns the unique id of new Agent if the function is successful, else returns &#45;1. " alt="" coords="482,613,649,640"/>
+<area shape="rect" id="node10" href="$class_in_di_prov_client.html#ae33d7a1a44e8d4e7ebbf832271938bce" title="Creating new Usage returns the unique id of new usage if the function is successful, else returns &#45;1. " alt="" coords="485,5,646,32"/>
+<area shape="rect" id="node11" href="$class_in_di_prov_client.html#a30aa922f818e6a6104185c9a11191acb" title="Creating new Generation returns the unique id of new Generation if the function is successful..." alt="" coords="449,56,682,83"/>
+<area shape="rect" id="node12" href="$class_in_di_prov_client.html#afc085d595289e66d9b3928e9a4229051" title="Creating new Derivation returns the unique id of new Derivation if the function is successful..." alt="" coords="449,107,681,133"/>
+<area shape="rect" id="node13" href="$class_in_di_prov_client.html#ac57311b22c1378f8f542e91c4285f935" title="Creating new Attribution returns the unique id of new Attribution if the function is successful..." alt="" coords="451,157,679,184"/>
+<area shape="rect" id="node14" href="$class_in_di_prov_client.html#a1a54aaeb77c6c4cca257999acf42d1e7" title="Creating new Association returns the unique id of new Association if the function is successful..." alt="" coords="441,208,690,235"/>
+<area shape="rect" id="node15" href="$class_in_di_prov_client.html#a05a450e338417ff0966bba635834f64a" title="Creating new Start returns the unique id of new Start if the function is successful, else returns &#45;1. " alt="" coords="458,259,673,285"/>
+<area shape="rect" id="node16" href="$class_in_di_prov_client.html#aecb51b066ab1096fc095b00ec6e04c8b" title="Creating new returns the unique id of new if the function is successful, else returns &#45;1..." alt="" coords="460,309,671,336"/>
+<area shape="rect" id="node17" href="$class_in_di_prov_client.html#aa9fbfb3480eded57485c9d4585375625" title="Creating new Communication returns the unique id of new Communication if the function is successful..." alt="" coords="453,360,677,387"/>
+<area shape="rect" id="node18" href="$class_in_di_prov_client.html#a18211425d8d357513a16ff8314727470" title="Export the current provenance information into xml format. " alt="" coords="471,411,660,437"/>
+<area shape="rect" id="node4" href="$class_in_di_prov_client.html#aa25fc27aead871d3a8103e27997cb2c6" title="Send the JSON based command to the defined server. " alt="" coords="739,280,904,307"/>
+<area shape="rect" id="node5" href="$class_in_di_prov_client.html#af7cb9082299c4dd099c176b55899dff0" title="Serialize command/function into JSON based. " alt="" coords="740,331,903,373"/>
+</map>
