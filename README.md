@@ -19,8 +19,9 @@ InDiPROV provides the following major features:
 
 # Building
 
-InDiPROV is a cross-platform toolkit, designed to run on any modern operating system, including all Unix variants. The server and client application implemented in C++ but the JSON command can be sent to server via any platform.
+InDiPROV is a cross-platform toolkit, designed to run on any modern operating system, including all Unix variants. The server and client application implemented in C++ but the JSON command can be sent to server via any platform. Server application can be simply run in QT but the corresponding database should be created before that. Database structure is located in Database-Structure, and should be imported into MYSQL. Then the created database information should be set as follow:
 
+    con = driver->connect("tcp://127.0.0.1:3306", "username", "password");
 
 InDiPROV requires the following external, pre-installed dependencies:
 
@@ -59,3 +60,7 @@ The main functions provided in this version (For list of all functions please lo
     setwasGeneratedBy
     setwasInformedBy
     setwasStartedBy
+
+# Help and feedback
+
+For any questions and feedback please send email to mdkhatami@gmail.com . 
