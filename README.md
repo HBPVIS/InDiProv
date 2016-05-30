@@ -1,51 +1,51 @@
 # Introduction
 
-Provenance Tracking for visual analysis workflows is still a challenge as especially interaction and collaboration aspects are poorly covered in existing realizations.
-Therefore, we propose a first prototype addressing these issues based on the PROV model.
-Interactions in multiple applications by multiple users can be tracked by means of a web interface and, thus, allowing even for tracking of remote-located collaboration partners.
-In the end, we demonstrate the applicability based on two use cases and discuss some open issues not addressed by our implementation so far but that can be easily integrated into our architecture. 
+InDiProv is a prototypical library to allow for provenance tracking in visual analysis workflows. 
+We aim to address the tracking of interactions in multiple applications by multiple users by means of a web interface and, thus, allowing even for tracking of remote-located collaboration partners.
+
 
 ## Features
 
 InDiPROV provides the following major features:
 
-* Server-client implementation of W3C PROV model
-* Publish and subscribe to server using ZeroMQ
+* Server-client implementation of the W3C PROV model
+* Publish and subscribe to a server using ZeroMQ
 * Communication encoded in JSON
 * Asynchronous, reliable transport
-* Using MYSQL to store PROV data
-* Convert from sql format to XML format
+* Using MySQL to store PROV data
+* Export the SQL data into XML format
 
 
-# Building
+# Build
 
-InDiPROV is a cross-platform toolkit, designed to run on any modern operating system, including all Unix variants. The server and client application implemented in C++ but the JSON command can be sent to server via any platform. Server application can be simply run in QT but the corresponding database should be created before that. Database structure is located in Database-Structure, and should be imported into MYSQL. Then the created database information should be set as follow:
-
-    con = driver->connect("tcp://127.0.0.1:3306", "username", "password");
+InDiPROV is a cross-platform toolkit, designed to run on any modern operating system, including all Unix variants. The server and client application are implemented in C++ but JSON enables to communication to the server with any language or platform. Before starting the server application, a corresponding database needs to be set up. To ensure the correct structure of the database, the [mydb.sql](https://github.com/HBPVIS/InDiProv/blob/master/Database-Structure/mydb.sql) file needs to be imported into MySQL database. Then the connection can be established with a username and password.
 
 InDiPROV requires the following external, pre-installed dependencies:
 
-* ZeroMQ
-* Boost
-* mysqlcppconn
-* xerces-c
+* [ZeroMQ](http://zeromq.org/)
+* [Boost C++ libraries](http://www.boost.org/)
+* [MySQL Connector/C++ libraries](https://dev.mysql.com/downloads/connector/cpp/) 
+* [Xerces-C++ XML Parser](http://xerces.apache.org/xerces-c/index.html)
 
-# Introduction to PROV abstract model
+The server application is provided as Qt project file and to build the client example application a *Makefile* can be used. We are currently working on *CMakelists* files for easier building on all systems.
 
-Because of the fact that InDivPROV tools in the implementation of PROV model, it makes scence to first become familar with PROV model. Here [PROV primer](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/) is good explnation of PROV model to start from. The image below shows the main provenances that can be stored using PROV model.
+
+# Introduction to the PROV Abstract Model
+
+**InDiPROV** is based on the general **PROV model**. [PROV primer](https://www.w3.org/TR/2013/NOTE-prov-primer-20130430/) gives a good explanation of the PROV model to start with. The image below shows the main provenances that can be stored using PROV model.
 
 ![alt tag](https://github.com/HBPVIS/InDiProv/blob/master/Documents/starting-points.png)
 
-# Server implemenation
+# Server Implementation
 
-* EReciever function: This is the main function is server side and listening for requests on specified socket ports and proccess them.
-* InDiProv class: The main class to process the recieved messages.
+* *InDiProv* class: The main class to process the received messages.
+* *EReciever* function in the *MainWindow* class: This function is waiting for messages on specified socket ports and processes them.
 
-# Client implemenation
+# Client Implementation
 
-* InDiProvClient class: This class is the main class to prepare JSON packet and communicate with server. To see how it works please refer to provided example in client folder. Also please look at [Client document](https://github.com/HBPVIS/InDiProv/tree/master/client/Document/html/index.html).
+* *InDiProvClient* class: This class is the main class to prepare a JSON message and communicate it to server. To see how it works please refer to the provided example in the client folder. Also please take s look at the [client documentation](https://github.com/HBPVIS/InDiProv/tree/master/client/Document/html/index.html).
 
-The main functions provided in this version (For list of all functions please look at InDiProv class):
+The most relevant functions provided in this version are listed in the following. For list of all functions please look at InDiProv class.
 
     createWF
     loadWF
@@ -61,6 +61,6 @@ The main functions provided in this version (For list of all functions please lo
     setwasInformedBy
     setwasStartedBy
 
-# Help and feedback
+# Help and Feedback
 
-For any questions and feedback please send email to mdkhatami@gmail.com . 
+For any questions and feedback please send an e-mail to mdkhatami@gmail.com
