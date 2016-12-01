@@ -21,6 +21,10 @@ public:
 		return name_;
 	}
 
+	const long getId() {
+		return id_;
+	}
+
 private:
 	friend class odb::access;
 

@@ -15,6 +15,9 @@
     <Filter Include="Model Headers">
       <UniqueIdentifier>{e1e5bc78-8839-4e74-89d8-ec64f42c9994}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controller Headers">
+      <UniqueIdentifier>{1ded4462-4352-4e7e-a841-db2ecd5ce4d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="database.hxx">
@@ -38,8 +41,8 @@
     <ClInclude Include="Model\activity-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
-    <ClInclude Include="dbactions.hxx">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="agent-actions.hxx">
+      <Filter>Controller Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

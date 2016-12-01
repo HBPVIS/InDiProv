@@ -6,9 +6,7 @@
 
 #include "database.hxx" // create_database
 
-#include "model/agent.hxx"
-#include "model/agent-odb.hxx"
-#include "dbactions.hxx"
+#include "controller/agent-actions.hxx"
 
 using namespace std;
 using namespace odb::core;
@@ -16,8 +14,13 @@ using namespace odb::core;
 int main (int argc, char* argv[]) {
 	try {
 		auto_ptr<database> db(create_database (argc, argv));
-		cout << createAgent(db, "cyremur") << std::endl;
-		cout << createAgent(db, "mercury") << std::endl;
+		cout << "create cyremur " << createAgent(db, "cyremur") << std::endl;
+		cout << "create mercury " << createAgent(db, "mercury") << std::endl;
+		cout << "get id mercury " << getAgentId(db, "mercury") << std::endl;
+		cout << "delete cyremur " << deleteAgent(db, "cyremur") << std::endl;
+		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
+		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
+		cout << "get id mercury " << getAgentId(db, "mercury") << std::endl;
 	} catch(const odb::exception& e) {
 		cerr << e.what () << endl;
 		string nope;

@@ -181,7 +181,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="database.hxx" />
-    <ClInclude Include="dbactions.hxx" />
+    <ClInclude Include="agent-actions.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
     <ClInclude Include="Model\agent-odb.hxx" />
