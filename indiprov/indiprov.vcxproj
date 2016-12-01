@@ -191,6 +191,7 @@
     <ClInclude Include="Model\agent.hxx" />
     <ClInclude Include="Model\entity-odb.hxx" />
     <ClInclude Include="Model\entity.hxx" />
+    <ClInclude Include="Model\wasAttributedTo-odb.hxx" />
     <ClInclude Include="Model\wasAttributedTo.hxx" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +199,7 @@
     <ClCompile Include="Model\activity-odb.cxx" />
     <ClCompile Include="Model\agent-odb.cxx" />
     <ClCompile Include="Model\entity-odb.cxx" />
+    <ClCompile Include="Model\wasAttributedTo-odb.cxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compile-odb-and-run.bat" />
@@ -207,6 +209,8 @@
     <None Include="Model\agent.sql" />
     <None Include="Model\entity-odb.ixx" />
     <None Include="Model\entity.sql" />
+    <None Include="Model\wasAttributedTo-odb.ixx" />
+    <None Include="Model\wasAttributedTo.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

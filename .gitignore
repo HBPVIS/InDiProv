@@ -14,3 +14,7 @@
 /indiprov/Model/agent.sql
 /indiprov/Model/entity.sql
 /InDiProv.VC.opendb
+/indiprov/Model/wasAttributedTo-odb.cxx
+/indiprov/Model/wasAttributedTo-odb.hxx
+/indiprov/Model/wasAttributedTo-odb.ixx
+/indiprov/Model/wasAttributedTo.sql

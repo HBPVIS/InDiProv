@@ -56,6 +56,9 @@
     <ClInclude Include="Controller\wasAttributedTo-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\wasAttributedTo-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx">
@@ -68,6 +71,9 @@
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="Model\activity-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\wasAttributedTo-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,6 +95,12 @@
       <Filter>Auto Generated</Filter>
     </None>
     <None Include="Model\agent.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasAttributedTo.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasAttributedTo-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>
