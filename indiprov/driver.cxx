@@ -7,6 +7,7 @@
 #include "database.hxx" // create_database
 
 #include "controller/agent-actions.hxx"
+#include "controller/entity-actions.hxx"
 
 using namespace std;
 using namespace odb::core;
@@ -21,6 +22,11 @@ int main (int argc, char* argv[]) {
 		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
 		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
 		cout << "get id mercury " << getAgentId(db, "mercury") << std::endl;
+
+		cout << "create RWTH " << createEntity(db, "RWTH") << std::endl;
+		cout << "create VR Lab " << createEntity(db, "VR Lab") << std::endl;
+		cout << "delete RWTH " << deleteEntity(db, "RWTH") << std::endl;
+		cout << "delete VR Lab " << deleteEntity(db, "VR Lab") << std::endl;
 	} catch(const odb::exception& e) {
 		cerr << e.what () << endl;
 		string nope;

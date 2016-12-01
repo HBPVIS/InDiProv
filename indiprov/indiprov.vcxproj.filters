@@ -41,7 +41,10 @@
     <ClInclude Include="Model\activity-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
-    <ClInclude Include="agent-actions.hxx">
+    <ClInclude Include="Controller\agent-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\entity-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
   </ItemGroup>

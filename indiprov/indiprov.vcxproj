@@ -180,8 +180,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controller\agent-actions.hxx" />
+    <ClInclude Include="Controller\entity-actions.hxx" />
     <ClInclude Include="database.hxx" />
-    <ClInclude Include="agent-actions.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
     <ClInclude Include="Model\agent-odb.hxx" />
