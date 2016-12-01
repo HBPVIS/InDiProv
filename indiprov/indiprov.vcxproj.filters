@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1C02A4DB-8F1B-4EC3-959B-6B49484F295A}</UniqueIdentifier>
+      <Extensions>h;hxx;ixx;txx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{81FFAD44-5294-458F-B108-A3F29C3A19E0}</UniqueIdentifier>
+      <Extensions>cxx</Extensions>
+    </Filter>
+    <Filter Include="Auto Generated">
+      <UniqueIdentifier>{65971e58-1b17-45fe-92aa-80da292a3b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model Headers">
+      <UniqueIdentifier>{e1e5bc78-8839-4e74-89d8-ec64f42c9994}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="database.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\activity.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\agent.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\entity.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\agent-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\entity-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\activity-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="dbactions.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\agent-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\entity-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\activity-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compile-odb-and-run.bat" />
+    <None Include="Model\agent-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\entity.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\entity-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\activity.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\activity-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\agent.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+/indiprov/Debug
+/.vs/InDiProv/v14/*.suo
+/indiprov/Model/entity-odb.cxx
+/indiprov/Model/entity-odb.hxx
+/indiprov/Model/entity-odb.ixx
+/indiprov/Model/agent-odb.cxx
+/indiprov/Model/agent-odb.hxx
+/indiprov/Model/agent-odb.ixx
+/indiprov/Model/activity-odb.cxx
+/indiprov/Model/activity-odb.hxx
+/indiprov/Model/activity-odb.ixx
+/indiprov/x64
+/indiprov/Model/activity.sql
+/indiprov/Model/agent.sql
+/indiprov/Model/entity.sql
+/InDiProv.VC.opendb
