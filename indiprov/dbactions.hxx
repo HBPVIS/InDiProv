@@ -1,5 +1,5 @@
-#ifndef ACTIVITY_HXX
-#define ACTIVITY_HXX
+#ifndef DBACTIONS_HXX
+#define DBACTIONS_HXX
 
 #include <memory>   // std::auto_ptr
 #include <iostream>
@@ -16,11 +16,11 @@ using namespace std;
 using namespace odb::core;
 
 int createAgent(auto_ptr<database>& db, string name) {
-	agent ag(name);
+	Agent agent(name);
 	transaction t(db->begin());
-	int id = db->persist(ag);
+	int id = db->persist(agent);
 	t.commit();
 	return id;
 }
 
-#endif
+#endif DBACTIONS_HXX

@@ -7,10 +7,10 @@
 #include <odb/core.hxx>
 
 #pragma db object
-class activity
-{
+class Activity {
+
 public:
-	activity(const std::string& name,
+	Activity(const std::string& name,
 		unsigned long start,
 		unsigned long end) 
 		: name_(name), start_(start), end_(end) {	}
@@ -30,7 +30,7 @@ public:
 private:
 	friend class odb::access;
 
-	activity() {}
+	Activity() {}
 
 #pragma db id auto
 	unsigned long id_;

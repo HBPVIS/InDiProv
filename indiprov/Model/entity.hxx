@@ -8,10 +8,10 @@
 #include <odb/core.hxx>
 
 #pragma db object
-class entity
-{
+class Entity {
+
 public:
-	entity(const std::string& name) : name_(name) {
+	Entity(const std::string& name) : name_(name) {
 		if (name.length() > 128) {
 			std::cout << "Name too long";
 		}
@@ -24,7 +24,7 @@ public:
 private:
 	friend class odb::access;
 
-	entity() {}
+	Entity() {}
 
 #pragma db id auto
 	unsigned long id_;
@@ -32,6 +32,7 @@ private:
 #pragma db unique
 #pragma db type("VARCHAR(128)")
 	std::string name_;
+
 };
 
 #endif // ENTITY_HXX
