@@ -180,8 +180,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controller\activity-actions.hxx" />
     <ClInclude Include="Controller\agent-actions.hxx" />
     <ClInclude Include="Controller\entity-actions.hxx" />
+    <ClInclude Include="Controller\wasAttributedTo-actions.hxx" />
     <ClInclude Include="database.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
@@ -189,6 +191,7 @@
     <ClInclude Include="Model\agent.hxx" />
     <ClInclude Include="Model\entity-odb.hxx" />
     <ClInclude Include="Model\entity.hxx" />
+    <ClInclude Include="Model\wasAttributedTo.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx" />

@@ -21,20 +21,12 @@ public:
 		return name_;
 	}
 
-	const long getId() {
-		return id_;
-	}
-
 private:
 	friend class odb::access;
 
 	Agent() {}
 
-#pragma db id auto
-	unsigned long id_;
-
-#pragma db unique
-#pragma db type("VARCHAR(128)")
+#pragma db id
 	std::string name_;
 
 };

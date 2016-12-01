@@ -47,6 +47,15 @@
     <ClInclude Include="Controller\entity-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Controller\activity-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasAttributedTo.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\wasAttributedTo-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx">
