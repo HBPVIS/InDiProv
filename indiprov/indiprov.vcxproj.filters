@@ -50,13 +50,13 @@
     <ClInclude Include="Controller\activity-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Model\wasAttributedTo.hxx">
-      <Filter>Model Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\wasAttributedTo-actions.hxx">
+    <ClInclude Include="Controller\attribution-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Model\wasAttributedTo-odb.hxx">
+    <ClInclude Include="Model\attribution.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\attribution-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
   </ItemGroup>
@@ -73,7 +73,7 @@
     <ClCompile Include="Model\activity-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
-    <ClCompile Include="Model\wasAttributedTo-odb.cxx">
+    <ClCompile Include="Model\attribution-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -97,10 +97,10 @@
     <None Include="Model\agent.sql">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\wasAttributedTo.sql">
+    <None Include="Model\attribution.sql">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\wasAttributedTo-odb.ixx">
+    <None Include="Model\attribution-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>

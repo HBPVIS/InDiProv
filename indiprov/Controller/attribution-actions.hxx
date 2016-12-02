@@ -12,8 +12,8 @@ using std::tr1::shared_ptr;
 
 #include "database.hxx" // create_database
 
-#include "model/wasAttributedTo.hxx"
-#include "model/wasAttributedTo-odb.hxx"
+#include "model/attribution.hxx"
+#include "model/attribution-odb.hxx"
 
 #include "model/agent.hxx"
 #include "model/agent-odb.hxx"
@@ -42,7 +42,7 @@ int createAttribution(auto_ptr<database>& db, string entityName, string agentNam
 		return -1;
 	}
 
-	WasAttributedTo attribution(entity, agent);
+	Attribution attribution(entity, agent);
 	long id = db->persist(attribution);
 	t.commit();
 	return id;
@@ -51,10 +51,10 @@ int createAttribution(auto_ptr<database>& db, string entityName, string agentNam
 bool deleteAttribution(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<WasAttributedTo> attribution(
-		db->query_one<WasAttributedTo>(query<WasAttributedTo>::id == id));
+	auto_ptr<Attribution> attribution(
+		db->query_one<Attribution>(query<Attribution>::id == id));
 	if (attribution.get() != 0) {
-		db->erase<WasAttributedTo>(*attribution);
+		db->erase<Attribution>(*attribution);
 		deleted = true;
 	}
 	t.commit();

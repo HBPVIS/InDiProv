@@ -13,10 +13,10 @@ using std::tr1::shared_ptr;
 #include "entity.hxx"
 
 #pragma db object
-class WasAttributedTo {
+class Attribution {
 
 public:
-	WasAttributedTo(shared_ptr<Entity> entity, shared_ptr<Agent> agent)  {
+	Attribution(shared_ptr<Entity> entity, shared_ptr<Agent> agent)  {
 		entity_ = entity;
 		agent_ = agent;
 	}
@@ -28,7 +28,7 @@ public:
 private:
 	friend class odb::access;
 
-	WasAttributedTo() {}
+	Attribution() {}
 
 #pragma db id auto
 	unsigned long id_;
