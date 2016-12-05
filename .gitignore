@@ -18,3 +18,7 @@
 /indiprov/Model/wasAttributedTo-odb.hxx
 /indiprov/Model/wasAttributedTo-odb.ixx
 /indiprov/Model/wasAttributedTo.sql
+/indiprov/Model/attribution-odb.cxx
+/indiprov/Model/attribution-odb.hxx
+/indiprov/Model/attribution-odb.ixx
+/indiprov/Model/attribution.sql
