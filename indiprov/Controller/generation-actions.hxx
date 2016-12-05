@@ -1,5 +1,5 @@
-#ifndef ATTRIBUTION_ACTIONS_HXX
-#define ATTRIBUTION_ACTIONS_HXX
+#ifndef GENERATION_ACTIONS_HXX
+#define GENERATION_ACTIONS_HXX
 
 #include <memory>   // std::auto_ptr
 #include <iostream>
@@ -12,18 +12,18 @@ using std::tr1::shared_ptr;
 
 #include "database.hxx" // create_database
 
-#include "model/attribution.hxx"
-#include "model/attribution-odb.hxx"
+#include "model/generation.hxx"
+#include "model/generation-odb.hxx"
 
-#include "model/agent.hxx"
-#include "model/agent-odb.hxx"
 #include "model/entity.hxx"
 #include "model/entity-odb.hxx"
+#include "model/activity.hxx"
+#include "model/activity-odb.hxx"
 
 using namespace std;
 using namespace odb::core;
 
-int createAttribution(auto_ptr<database>& db, string entityName, string agentName) {
+int createGeneration(auto_ptr<database>& db, string entityName, long activityId) {
 	transaction t(db->begin());
 
 	shared_ptr<Entity> entity(
@@ -34,31 +34,31 @@ int createAttribution(auto_ptr<database>& db, string entityName, string agentNam
 		return -1;
 	}
 
-	shared_ptr<Agent> agent(
-		db->query_one<Agent>(query<Agent>::name == agentName));
-	if (agent.get() == 0) {
-		cerr << "No such agent!";
+	shared_ptr<Activity> activity(
+		db->query_one<Activity>(query<Activity>::id == activityId));
+	if (activity.get() == 0) {
+		cerr << "No such activity!";
 		t.commit();
 		return -1;
 	}
 
-	Attribution attribution(entity, agent);
+	Generation attribution(entity, activity);
 	long id = db->persist(attribution);
 	t.commit();
 	return id;
 }
 
-bool deleteAttribution(auto_ptr<database>& db, long id) {
+bool deleteGeneration(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<Attribution> attribution(
-		db->query_one<Attribution>(query<Attribution>::id == id));
-	if (attribution.get() != 0) {
-		db->erase<Attribution>(*attribution);
+	auto_ptr<Generation> generation(
+		db->query_one<Generation>(query<Generation>::id == id));
+	if (generation.get() != 0) {
+		db->erase<Generation>(*generation);
 		deleted = true;
 	}
 	t.commit();
 	return deleted;
 }
 
-#endif // ATTRIBUTION_ACTIONS_HXX
+#endif // GENERATION_ACTIONS_HXX

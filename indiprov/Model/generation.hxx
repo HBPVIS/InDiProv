@@ -1,5 +1,5 @@
-#ifndef ATTRIBUTION_HXX
-#define ATTRIBUTION_HXX
+#ifndef GENERATION_HXX
+#define GENERATION_HXX
 
 #include <odb/tr1/memory.hxx>
 using std::tr1::shared_ptr;
@@ -7,16 +7,16 @@ using std::tr1::shared_ptr;
 #include <odb/core.hxx>
 
 #include "entity.hxx"
-#include "agent.hxx"
+#include "activity.hxx"
 
 #pragma db object
-class Attribution {
+class Generation {
 
 public:
-	//Entity wasAttributedTo Agent
-	Attribution(shared_ptr<Entity> entity, shared_ptr<Agent> agent)  {
+	//Entity wasGeneratedBy Activity
+	Generation(shared_ptr<Entity> entity, shared_ptr<Activity> activity) {
 		entity_ = entity;
-		agent_ = agent;
+		activity_ = activity;
 	}
 
 	const long getId() {
@@ -26,7 +26,7 @@ public:
 private:
 	friend class odb::access;
 
-	Attribution() {}
+	Generation() {}
 
 #pragma db id auto
 	unsigned long id_;
@@ -35,8 +35,8 @@ private:
 	shared_ptr<Entity> entity_;
 
 #pragma db not_null
-	shared_ptr<Agent> agent_;
+	shared_ptr<Activity> activity_;
 
 };
 
-#endif // ATTRIBUTION_HXX
+#endif // GENERATION_HXX

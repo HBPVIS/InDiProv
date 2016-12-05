@@ -59,6 +59,15 @@
     <ClInclude Include="Model\attribution-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
+    <ClInclude Include="Model\generation.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\generation-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\generation-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx">
@@ -74,6 +83,9 @@
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="Model\attribution-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\generation-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,6 +113,12 @@
       <Filter>Auto Generated</Filter>
     </None>
     <None Include="Model\attribution-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\generation.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\generation-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>

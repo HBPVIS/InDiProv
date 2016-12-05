@@ -22,3 +22,7 @@
 /indiprov/Model/attribution-odb.hxx
 /indiprov/Model/attribution-odb.ixx
 /indiprov/Model/attribution.sql
+/indiprov/Model/generation-odb.cxx
+/indiprov/Model/generation-odb.hxx
+/indiprov/Model/generation-odb.ixx
+/indiprov/Model/generation.sql
