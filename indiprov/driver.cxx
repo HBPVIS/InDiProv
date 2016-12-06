@@ -14,6 +14,7 @@
 #include "controller/wasAttributedTo-actions.hxx"
 #include "controller/used-actions.hxx"
 #include "controller/wasInformedBy-actions.hxx"
+#include "controller/wasAssociatedWith-actions.hxx"
 
 using namespace std;
 using namespace odb::core;
@@ -52,6 +53,10 @@ int main (int argc, char* argv[]) {
 		id = createUsed(db, actAId, "VR Lab");
 		cout << "create used " << id << std::endl;
 		cout << "delete used " << deleteUsed(db, id) << std::endl;
+
+		id = createWasAssociatedWith(db, actBId, "cyremur");
+		cout << "create association " << id << std::endl;
+		cout << "delete association " << deleteWasAssociatedWith(db, id) << std::endl;
 
 		cout << "delete cyremur " << deleteAgent(db, "cyremur") << std::endl;
 		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;

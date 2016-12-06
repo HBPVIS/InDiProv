@@ -95,6 +95,15 @@
     <ClInclude Include="Model\wasInformedBy-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
+    <ClInclude Include="Model\wasAssociatedWith.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\wasAssociatedWith-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasAssociatedWith-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx">
@@ -122,6 +131,9 @@
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="Model\wasInformedBy-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\wasAssociatedWith-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,6 +185,12 @@
       <Filter>Auto Generated</Filter>
     </None>
     <None Include="Model\wasInformedBy-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasAssociatedWith-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasAssociatedWith.sql">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>
