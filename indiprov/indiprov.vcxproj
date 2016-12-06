@@ -183,6 +183,7 @@
     <ClInclude Include="Controller\activity-actions.hxx" />
     <ClInclude Include="Controller\agent-actions.hxx" />
     <ClInclude Include="Controller\entity-actions.hxx" />
+    <ClInclude Include="Controller\used-actions.hxx" />
     <ClInclude Include="Controller\wasAttributedTo-actions.hxx" />
     <ClInclude Include="Controller\wasDerivedFrom-actions.hxx" />
     <ClInclude Include="Controller\wasGeneratedBy-actions.hxx" />
@@ -193,6 +194,8 @@
     <ClInclude Include="Model\agent.hxx" />
     <ClInclude Include="Model\entity-odb.hxx" />
     <ClInclude Include="Model\entity.hxx" />
+    <ClInclude Include="Model\used-odb.hxx" />
+    <ClInclude Include="Model\used.hxx" />
     <ClInclude Include="Model\wasAttributedTo-odb.hxx" />
     <ClInclude Include="Model\wasAttributedTo.hxx" />
     <ClInclude Include="Model\wasDerivedFrom-odb.hxx" />
@@ -205,6 +208,7 @@
     <ClCompile Include="Model\activity-odb.cxx" />
     <ClCompile Include="Model\agent-odb.cxx" />
     <ClCompile Include="Model\entity-odb.cxx" />
+    <ClCompile Include="Model\used-odb.cxx" />
     <ClCompile Include="Model\wasAttributedTo-odb.cxx" />
     <ClCompile Include="Model\wasDerivedFrom-odb.cxx" />
     <ClCompile Include="Model\wasGeneratedBy-odb.cxx" />
@@ -217,6 +221,8 @@
     <None Include="Model\agent.sql" />
     <None Include="Model\entity-odb.ixx" />
     <None Include="Model\entity.sql" />
+    <None Include="Model\used-odb.ixx" />
+    <None Include="Model\used.sql" />
     <None Include="Model\wasAttributedTo-odb.ixx" />
     <None Include="Model\wasAttributedTo.sql" />
     <None Include="Model\wasDerivedFrom-odb.ixx" />

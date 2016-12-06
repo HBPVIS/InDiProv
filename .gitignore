@@ -3,6 +3,10 @@
 /*.sdf
 /indiprov/x64
 /InDiProv.VC.opendb
+/indiprov/Model/entity-odb.cxx
+/indiprov/Model/entity-odb.hxx
+/indiprov/Model/entity-odb.ixx
+/indiprov/Model/entity.sql
 /indiprov/Model/activity-odb.cxx
 /indiprov/Model/activity-odb.hxx
 /indiprov/Model/activity-odb.ixx
@@ -11,14 +15,6 @@
 /indiprov/Model/agent-odb.hxx
 /indiprov/Model/agent-odb.ixx
 /indiprov/Model/agent.sql
-/indiprov/Model/entity-odb.cxx
-/indiprov/Model/entity-odb.hxx
-/indiprov/Model/entity-odb.ixx
-/indiprov/Model/entity.sql
-/indiprov/Model/wasAttributedTo-odb.cxx
-/indiprov/Model/wasAttributedTo-odb.hxx
-/indiprov/Model/wasAttributedTo-odb.ixx
-/indiprov/Model/wasAttributedTo.sql
 /indiprov/Model/wasGeneratedBy-odb.cxx
 /indiprov/Model/wasGeneratedBy-odb.hxx
 /indiprov/Model/wasGeneratedBy-odb.ixx
@@ -27,3 +23,11 @@
 /indiprov/Model/wasDerivedFrom-odb.hxx
 /indiprov/Model/wasDerivedFrom-odb.ixx
 /indiprov/Model/wasDerivedFrom.sql
+/indiprov/Model/wasAttributedTo-odb.cxx
+/indiprov/Model/wasAttributedTo-odb.hxx
+/indiprov/Model/wasAttributedTo-odb.ixx
+/indiprov/Model/wasAttributedTo.sql
+/indiprov/Model/used-odb.cxx
+/indiprov/Model/used-odb.hxx
+/indiprov/Model/used-odb.ixx
+/indiprov/Model/used.sql
