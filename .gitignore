@@ -35,3 +35,11 @@
 /indiprov/Model/wasInformedBy-odb.hxx
 /indiprov/Model/wasInformedBy-odb.ixx
 /indiprov/Model/wasInformedBy.sql
+/indiprov/Model/wasAssociatedWith-odb.cxx
+/indiprov/Model/wasAssociatedWith-odb.hxx
+/indiprov/Model/wasAssociatedWith-odb.ixx
+/indiprov/Model/wasAssociatedWith.sql
+/indiprov/Model/actedOnBehalfOf-odb.cxx
+/indiprov/Model/actedOnBehalfOf-odb.hxx
+/indiprov/Model/actedOnBehalfOf-odb.ixx
+/indiprov/Model/actedOnBehalfOf.sql
