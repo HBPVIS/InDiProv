@@ -23,7 +23,7 @@ using std::tr1::shared_ptr;
 using namespace std;
 using namespace odb::core;
 
-int createAttribution(auto_ptr<database>& db, string entityName, string agentName) {
+int createWasAttributedTo(auto_ptr<database>& db, string entityName, string agentName) {
 	transaction t(db->begin());
 
 	shared_ptr<Entity> entity(
@@ -42,19 +42,19 @@ int createAttribution(auto_ptr<database>& db, string entityName, string agentNam
 		return -1;
 	}
 
-	WasAttributedTo attribution(entity, agent);
-	long id = db->persist(attribution);
+	WasAttributedTo wasAttributedTo(entity, agent);
+	long id = db->persist(wasAttributedTo);
 	t.commit();
 	return id;
 }
 
-bool deleteAttribution(auto_ptr<database>& db, long id) {
+bool deleteWasAttributedTo(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<WasAttributedTo> attribution(
+	auto_ptr<WasAttributedTo> wasAttributedTo(
 		db->query_one<WasAttributedTo>(query<WasAttributedTo>::id == id));
-	if (attribution.get() != 0) {
-		db->erase<WasAttributedTo>(*attribution);
+	if (wasAttributedTo.get() != 0) {
+		db->erase<WasAttributedTo>(*wasAttributedTo);
 		deleted = true;
 	}
 	t.commit();

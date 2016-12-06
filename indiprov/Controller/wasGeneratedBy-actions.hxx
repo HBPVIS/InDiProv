@@ -23,7 +23,7 @@ using std::tr1::shared_ptr;
 using namespace std;
 using namespace odb::core;
 
-int createGeneration(auto_ptr<database>& db, string entityName, long activityId) {
+int createWasGeneratedBy(auto_ptr<database>& db, string entityName, long activityId) {
 	transaction t(db->begin());
 
 	shared_ptr<Entity> entity(
@@ -42,19 +42,19 @@ int createGeneration(auto_ptr<database>& db, string entityName, long activityId)
 		return -1;
 	}
 
-	WasGeneratedBy generation(entity, activity);
-	long id = db->persist(generation);
+	WasGeneratedBy wasGeneratedBy(entity, activity);
+	long id = db->persist(wasGeneratedBy);
 	t.commit();
 	return id;
 }
 
-bool deleteGeneration(auto_ptr<database>& db, long id) {
+bool deleteWasGeneratedBy(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<WasGeneratedBy> generation(
+	auto_ptr<WasGeneratedBy> wasGeneratedBy(
 		db->query_one<WasGeneratedBy>(query<WasGeneratedBy>::id == id));
-	if (generation.get() != 0) {
-		db->erase<WasGeneratedBy>(*generation);
+	if (wasGeneratedBy.get() != 0) {
+		db->erase<WasGeneratedBy>(*wasGeneratedBy);
 		deleted = true;
 	}
 	t.commit();

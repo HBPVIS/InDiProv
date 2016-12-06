@@ -25,9 +25,9 @@ int main (int argc, char* argv[]) {
 		cout << "create " << createEntity(db, "RWTH") << std::endl;
 		cout << "create " << createEntity(db, "VR Lab") << std::endl;
 
-		int id = createAttribution(db, "VR Lab", "cyremur");
+		int id = createWasAttributedTo(db, "VR Lab", "cyremur");
 		cout << "create attribution " << id << std::endl;
-		cout << "delete attribution " << deleteAttribution(db, id) << std::endl;
+		cout << "delete attribution " << deleteWasAttributedTo(db, id) << std::endl;
 
 		cout << "delete cyremur " << deleteAgent(db, "cyremur") << std::endl;
 		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
