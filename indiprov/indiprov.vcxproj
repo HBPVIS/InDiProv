@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controller\actedOnBehalfOf-actions.hxx" />
     <ClInclude Include="Controller\activity-actions.hxx" />
     <ClInclude Include="Controller\agent-actions.hxx" />
     <ClInclude Include="Controller\entity-actions.hxx" />
@@ -190,6 +191,8 @@
     <ClInclude Include="Controller\wasGeneratedBy-actions.hxx" />
     <ClInclude Include="Controller\wasInformedBy-actions.hxx" />
     <ClInclude Include="database.hxx" />
+    <ClInclude Include="Model\actedOnBehalfOf-odb.hxx" />
+    <ClInclude Include="Model\actedOnBehalfOf.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
     <ClInclude Include="Model\agent-odb.hxx" />
@@ -211,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx" />
+    <ClCompile Include="Model\actedOnBehalfOf-odb.cxx" />
     <ClCompile Include="Model\activity-odb.cxx" />
     <ClCompile Include="Model\agent-odb.cxx" />
     <ClCompile Include="Model\entity-odb.cxx" />
@@ -223,6 +227,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="compile-odb-and-run.bat" />
+    <None Include="Model\actedOnBehalfOf-odb.ixx" />
+    <None Include="Model\actedOnBehalfOf.sql" />
     <None Include="Model\activity-odb.ixx" />
     <None Include="Model\activity.sql" />
     <None Include="Model\agent-odb.ixx" />

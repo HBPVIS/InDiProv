@@ -15,6 +15,7 @@
 #include "controller/used-actions.hxx"
 #include "controller/wasInformedBy-actions.hxx"
 #include "controller/wasAssociatedWith-actions.hxx"
+#include "controller/actedOnBehalfOf-actions.hxx"
 
 using namespace std;
 using namespace odb::core;
@@ -48,7 +49,7 @@ int main (int argc, char* argv[]) {
 
 		id = createWasInformedBy(db, actAId, actBId);
 		cout << "create information " << id << std::endl;
-		cout << "delete information " << deleteWasInformedBy(db, id);
+		cout << "delete information " << deleteWasInformedBy(db, id) << std::endl;
 
 		id = createUsed(db, actAId, "VR Lab");
 		cout << "create used " << id << std::endl;
@@ -57,6 +58,10 @@ int main (int argc, char* argv[]) {
 		id = createWasAssociatedWith(db, actBId, "cyremur");
 		cout << "create association " << id << std::endl;
 		cout << "delete association " << deleteWasAssociatedWith(db, id) << std::endl;
+
+		id = createActedOnBehalfOf(db, "mercury", "cyremur");
+		cout << "create action on behalf " << id << std::endl;
+		cout << "delete action on behalf " << deleteActedOnBehalfOf(db, id) << std::endl;
 
 		cout << "delete cyremur " << deleteAgent(db, "cyremur") << std::endl;
 		cout << "delete mercury " << deleteAgent(db, "mercury") << std::endl;
@@ -67,6 +72,7 @@ int main (int argc, char* argv[]) {
 
 		cout << "delete RWTH " << deleteEntity(db, "RWTH") << std::endl;
 		cout << "delete VR Lab " << deleteEntity(db, "VR Lab") << std::endl;
+
 	} catch(const odb::exception& e) {
 		cerr << e.what () << endl;
 		string nope;
