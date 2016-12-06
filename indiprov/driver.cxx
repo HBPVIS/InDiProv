@@ -40,7 +40,5 @@ int main (int argc, char* argv[]) {
 		cin >> nope;
 		return 1;
 	}
-	string nope;
-	cin >> nope;
 	return 0;
 }
