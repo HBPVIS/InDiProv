@@ -23,3 +23,7 @@
 /indiprov/Model/wasGeneratedBy-odb.hxx
 /indiprov/Model/wasGeneratedBy-odb.ixx
 /indiprov/Model/wasGeneratedBy.sql
+/indiprov/Model/wasDerivedFrom-odb.cxx
+/indiprov/Model/wasDerivedFrom-odb.hxx
+/indiprov/Model/wasDerivedFrom-odb.ixx
+/indiprov/Model/wasDerivedFrom.sql
