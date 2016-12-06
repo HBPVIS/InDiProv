@@ -42,8 +42,8 @@ int createGeneration(auto_ptr<database>& db, string entityName, long activityId)
 		return -1;
 	}
 
-	Generation attribution(entity, activity);
-	long id = db->persist(attribution);
+	Generation generation(entity, activity);
+	long id = db->persist(generation);
 	t.commit();
 	return id;
 }

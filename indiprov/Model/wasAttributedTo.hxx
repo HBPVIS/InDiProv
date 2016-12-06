@@ -1,5 +1,5 @@
-#ifndef ATTRIBUTION_HXX
-#define ATTRIBUTION_HXX
+#ifndef WASATTRIBUTEDTO_HXX
+#define WASATTRIBUTEDTO_HXX
 
 #include <odb/tr1/memory.hxx>
 using std::tr1::shared_ptr;
@@ -10,11 +10,11 @@ using std::tr1::shared_ptr;
 #include "agent.hxx"
 
 #pragma db object
-class Attribution {
+class WasAttributedTo {
 
 public:
 	//Entity wasAttributedTo Agent
-	Attribution(shared_ptr<Entity> entity, shared_ptr<Agent> agent)  {
+	WasAttributedTo(shared_ptr<Entity> entity, shared_ptr<Agent> agent)  {
 		entity_ = entity;
 		agent_ = agent;
 	}
@@ -26,7 +26,7 @@ public:
 private:
 	friend class odb::access;
 
-	Attribution() {}
+	WasAttributedTo() {}
 
 #pragma db id auto
 	unsigned long id_;
@@ -39,4 +39,4 @@ private:
 
 };
 
-#endif // ATTRIBUTION_HXX
+#endif // WASATTRIBUTEDTO_HXX

@@ -50,20 +50,20 @@
     <ClInclude Include="Controller\activity-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Controller\attribution-actions.hxx">
-      <Filter>Controller Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\attribution.hxx">
-      <Filter>Model Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\attribution-odb.hxx">
-      <Filter>Auto Generated</Filter>
-    </ClInclude>
     <ClInclude Include="Model\generation.hxx">
       <Filter>Model Headers</Filter>
     </ClInclude>
     <ClInclude Include="Controller\generation-actions.hxx">
       <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasAttributedTo.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\wasAttributedTo-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasAttributedTo-odb.hxx">
+      <Filter>Auto Generated</Filter>
     </ClInclude>
     <ClInclude Include="Model\generation-odb.hxx">
       <Filter>Auto Generated</Filter>
@@ -82,7 +82,7 @@
     <ClCompile Include="Model\activity-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
-    <ClCompile Include="Model\attribution-odb.cxx">
+    <ClCompile Include="Model\wasAttributedTo-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="Model\generation-odb.cxx">
@@ -109,16 +109,16 @@
     <None Include="Model\agent.sql">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\attribution.sql">
+    <None Include="Model\wasAttributedTo-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\attribution-odb.ixx">
-      <Filter>Auto Generated</Filter>
-    </None>
-    <None Include="Model\generation.sql">
+    <None Include="Model\wasAttributedTo.sql">
       <Filter>Auto Generated</Filter>
     </None>
     <None Include="Model\generation-odb.ixx">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\generation.sql">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>

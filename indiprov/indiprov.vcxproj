@@ -183,27 +183,27 @@
     <ClInclude Include="Controller\activity-actions.hxx" />
     <ClInclude Include="Controller\agent-actions.hxx" />
     <ClInclude Include="Controller\entity-actions.hxx" />
-    <ClInclude Include="Controller\attribution-actions.hxx" />
+    <ClInclude Include="Controller\wasAttributedTo-actions.hxx" />
     <ClInclude Include="Controller\generation-actions.hxx" />
     <ClInclude Include="database.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
     <ClInclude Include="Model\agent-odb.hxx" />
     <ClInclude Include="Model\agent.hxx" />
-    <ClInclude Include="Model\attribution-odb.hxx" />
     <ClInclude Include="Model\entity-odb.hxx" />
     <ClInclude Include="Model\entity.hxx" />
-    <ClInclude Include="Model\attribution.hxx" />
     <ClInclude Include="Model\generation-odb.hxx" />
+    <ClInclude Include="Model\wasAttributedTo-odb.hxx" />
+    <ClInclude Include="Model\wasAttributedTo.hxx" />
     <ClInclude Include="Model\generation.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx" />
     <ClCompile Include="Model\activity-odb.cxx" />
     <ClCompile Include="Model\agent-odb.cxx" />
-    <ClCompile Include="Model\attribution-odb.cxx" />
     <ClCompile Include="Model\entity-odb.cxx" />
     <ClCompile Include="Model\generation-odb.cxx" />
+    <ClCompile Include="Model\wasAttributedTo-odb.cxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compile-odb-and-run.bat" />
@@ -211,12 +211,12 @@
     <None Include="Model\activity.sql" />
     <None Include="Model\agent-odb.ixx" />
     <None Include="Model\agent.sql" />
-    <None Include="Model\attribution-odb.ixx" />
-    <None Include="Model\attribution.sql" />
     <None Include="Model\entity-odb.ixx" />
     <None Include="Model\entity.sql" />
     <None Include="Model\generation-odb.ixx" />
     <None Include="Model\generation.sql" />
+    <None Include="Model\wasAttributedTo-odb.ixx" />
+    <None Include="Model\wasAttributedTo.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
