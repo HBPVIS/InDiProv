@@ -31,3 +31,7 @@
 /indiprov/Model/used-odb.hxx
 /indiprov/Model/used-odb.ixx
 /indiprov/Model/used.sql
+/indiprov/Model/wasInformedBy-odb.cxx
+/indiprov/Model/wasInformedBy-odb.hxx
+/indiprov/Model/wasInformedBy-odb.ixx
+/indiprov/Model/wasInformedBy.sql

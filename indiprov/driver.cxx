@@ -13,6 +13,7 @@
 #include "controller/wasDerivedFrom-actions.hxx"
 #include "controller/wasAttributedTo-actions.hxx"
 #include "controller/used-actions.hxx"
+#include "controller/wasInformedBy-actions.hxx"
 
 using namespace std;
 using namespace odb::core;
@@ -43,6 +44,10 @@ int main (int argc, char* argv[]) {
 		id = createWasDerivedFrom(db, "VR Lab", "RWTH");
 		cout << "create derivation " << id << std::endl;
 		cout << "delete derivation " << deleteWasDerivedFrom(db, id) << std::endl;
+
+		id = createWasInformedBy(db, actAId, actBId);
+		cout << "create information " << id << std::endl;
+		cout << "delete information " << deleteWasInformedBy(db, id);
 
 		id = createUsed(db, actAId, "VR Lab");
 		cout << "create used " << id << std::endl;

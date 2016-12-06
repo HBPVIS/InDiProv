@@ -187,6 +187,7 @@
     <ClInclude Include="Controller\wasAttributedTo-actions.hxx" />
     <ClInclude Include="Controller\wasDerivedFrom-actions.hxx" />
     <ClInclude Include="Controller\wasGeneratedBy-actions.hxx" />
+    <ClInclude Include="Controller\wasInformedBy-actions.hxx" />
     <ClInclude Include="database.hxx" />
     <ClInclude Include="Model\activity-odb.hxx" />
     <ClInclude Include="Model\activity.hxx" />
@@ -202,6 +203,8 @@
     <ClInclude Include="Model\wasDerivedFrom.hxx" />
     <ClInclude Include="Model\wasGeneratedBy-odb.hxx" />
     <ClInclude Include="Model\wasGeneratedBy.hxx" />
+    <ClInclude Include="Model\wasInformedBy-odb.hxx" />
+    <ClInclude Include="Model\wasInformedBy.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx" />
@@ -212,6 +215,7 @@
     <ClCompile Include="Model\wasAttributedTo-odb.cxx" />
     <ClCompile Include="Model\wasDerivedFrom-odb.cxx" />
     <ClCompile Include="Model\wasGeneratedBy-odb.cxx" />
+    <ClCompile Include="Model\wasInformedBy-odb.cxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compile-odb-and-run.bat" />
@@ -229,6 +233,8 @@
     <None Include="Model\wasDerivedFrom.sql" />
     <None Include="Model\wasGeneratedBy-odb.ixx" />
     <None Include="Model\wasGeneratedBy.sql" />
+    <None Include="Model\wasInformedBy-odb.ixx" />
+    <None Include="Model\wasInformedBy.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

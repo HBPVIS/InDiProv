@@ -12,7 +12,7 @@ using std::tr1::shared_ptr;
 class WasDerivedFrom {
 
 public:
-	//Entity wasDerivedFrom Entity
+	//derivedEntity wasDerivedFrom sourceEntity
 	WasDerivedFrom(shared_ptr<Entity> derivedEntity, shared_ptr<Entity> sourceEntity) {
 		derivedEntity_ = derivedEntity;
 		sourceEntity_ = sourceEntity;

@@ -86,6 +86,15 @@
     <ClInclude Include="Controller\used-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\wasInformedBy.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\wasInformedBy-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasInformedBy-odb.hxx">
+      <Filter>Auto Generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="driver.cxx">
@@ -110,6 +119,9 @@
       <Filter>Auto Generated</Filter>
     </ClCompile>
     <ClCompile Include="Model\used-odb.cxx">
+      <Filter>Auto Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\wasInformedBy-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,6 +167,12 @@
       <Filter>Auto Generated</Filter>
     </None>
     <None Include="Model\used.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasInformedBy.sql">
+      <Filter>Auto Generated</Filter>
+    </None>
+    <None Include="Model\wasInformedBy-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>
