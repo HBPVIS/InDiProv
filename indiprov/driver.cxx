@@ -10,7 +10,7 @@
 #include "controller/agent-actions.hxx"
 #include "controller/entity-actions.hxx"
 #include "controller/wasAttributedTo-actions.hxx"
-#include "controller/generation-actions.hxx"
+#include "controller/wasGeneratedBy-actions.hxx"
 
 using namespace std;
 using namespace odb::core;

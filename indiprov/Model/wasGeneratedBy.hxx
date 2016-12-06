@@ -1,5 +1,5 @@
-#ifndef GENERATION_HXX
-#define GENERATION_HXX
+#ifndef WASGENERATEDBY_HXX
+#define WASGENERATEDBY_HXX
 
 #include <odb/tr1/memory.hxx>
 using std::tr1::shared_ptr;
@@ -10,11 +10,11 @@ using std::tr1::shared_ptr;
 #include "activity.hxx"
 
 #pragma db object
-class Generation {
+class WasGeneratedBy {
 
 public:
 	//Entity wasGeneratedBy Activity
-	Generation(shared_ptr<Entity> entity, shared_ptr<Activity> activity) {
+	WasGeneratedBy(shared_ptr<Entity> entity, shared_ptr<Activity> activity) {
 		entity_ = entity;
 		activity_ = activity;
 	}
@@ -26,7 +26,7 @@ public:
 private:
 	friend class odb::access;
 
-	Generation() {}
+	WasGeneratedBy() {}
 
 #pragma db id auto
 	unsigned long id_;
@@ -39,4 +39,4 @@ private:
 
 };
 
-#endif // GENERATION_HXX
+#endif // WASGENERATEDBY_HXX

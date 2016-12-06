@@ -1,5 +1,5 @@
-#ifndef GENERATION_ACTIONS_HXX
-#define GENERATION_ACTIONS_HXX
+#ifndef WASGENERATEDBY_ACTIONS_HXX
+#define WASGENERATEDBY_ACTIONS_HXX
 
 #include <memory>   // std::auto_ptr
 #include <iostream>
@@ -12,8 +12,8 @@ using std::tr1::shared_ptr;
 
 #include "database.hxx" // create_database
 
-#include "model/generation.hxx"
-#include "model/generation-odb.hxx"
+#include "model/wasGeneratedBy.hxx"
+#include "model/wasGeneratedBy-odb.hxx"
 
 #include "model/entity.hxx"
 #include "model/entity-odb.hxx"
@@ -42,7 +42,7 @@ int createGeneration(auto_ptr<database>& db, string entityName, long activityId)
 		return -1;
 	}
 
-	Generation generation(entity, activity);
+	WasGeneratedBy generation(entity, activity);
 	long id = db->persist(generation);
 	t.commit();
 	return id;
@@ -51,14 +51,14 @@ int createGeneration(auto_ptr<database>& db, string entityName, long activityId)
 bool deleteGeneration(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<Generation> generation(
-		db->query_one<Generation>(query<Generation>::id == id));
+	auto_ptr<WasGeneratedBy> generation(
+		db->query_one<WasGeneratedBy>(query<WasGeneratedBy>::id == id));
 	if (generation.get() != 0) {
-		db->erase<Generation>(*generation);
+		db->erase<WasGeneratedBy>(*generation);
 		deleted = true;
 	}
 	t.commit();
 	return deleted;
 }
 
-#endif // GENERATION_ACTIONS_HXX
+#endif // WASGENERATEDBY_ACTIONS_HXX

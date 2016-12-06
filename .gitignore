@@ -26,3 +26,8 @@
 /indiprov/Model/generation-odb.hxx
 /indiprov/Model/generation-odb.ixx
 /indiprov/Model/generation.sql
+/*.sdf
+/indiprov/Model/wasGeneratedBy-odb.cxx
+/indiprov/Model/wasGeneratedBy-odb.hxx
+/indiprov/Model/wasGeneratedBy-odb.ixx
+/indiprov/Model/wasGeneratedBy.sql

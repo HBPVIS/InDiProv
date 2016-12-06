@@ -50,12 +50,6 @@
     <ClInclude Include="Controller\activity-actions.hxx">
       <Filter>Controller Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Model\generation.hxx">
-      <Filter>Model Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller\generation-actions.hxx">
-      <Filter>Controller Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Model\wasAttributedTo.hxx">
       <Filter>Model Headers</Filter>
     </ClInclude>
@@ -65,7 +59,13 @@
     <ClInclude Include="Model\wasAttributedTo-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
-    <ClInclude Include="Model\generation-odb.hxx">
+    <ClInclude Include="Model\wasGeneratedBy.hxx">
+      <Filter>Model Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\wasGeneratedBy-actions.hxx">
+      <Filter>Controller Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\wasGeneratedBy-odb.hxx">
       <Filter>Auto Generated</Filter>
     </ClInclude>
   </ItemGroup>
@@ -85,7 +85,7 @@
     <ClCompile Include="Model\wasAttributedTo-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
-    <ClCompile Include="Model\generation-odb.cxx">
+    <ClCompile Include="Model\wasGeneratedBy-odb.cxx">
       <Filter>Auto Generated</Filter>
     </ClCompile>
   </ItemGroup>
@@ -115,10 +115,10 @@
     <None Include="Model\wasAttributedTo.sql">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\generation-odb.ixx">
+    <None Include="Model\wasGeneratedBy-odb.ixx">
       <Filter>Auto Generated</Filter>
     </None>
-    <None Include="Model\generation.sql">
+    <None Include="Model\wasGeneratedBy.sql">
       <Filter>Auto Generated</Filter>
     </None>
   </ItemGroup>
