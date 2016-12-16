@@ -71,7 +71,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(Configuration)\</OutDir>
     <TargetName>driver</TargetName>
-    <ExecutablePath>D:\InDiPROV\odb\libodb-2.4.0\bin;D:\InDiPROV\odb\libodb-mysql-2.4.0\bin;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\bin;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>D:\InDiPROV\odb\libodb-2.4.0;D:\InDiPROV\odb\libodb-mysql-2.4.0;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\InDiPROV\odb\libodb-2.4.0\lib;D:\InDiPROV\odb\libodb-mysql-2.4.0\lib;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -87,7 +87,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(Configuration)\</OutDir>
     <TargetName>driver</TargetName>
-    <ExecutablePath>D:\InDiPROV\odb\libodb-2.4.0\bin;D:\InDiPROV\odb\libodb-mysql-2.4.0\bin;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\bin;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>D:\InDiPROV\odb\libodb-2.4.0;D:\InDiPROV\odb\libodb-mysql-2.4.0;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\InDiPROV\odb\libodb-2.4.0\lib;D:\InDiPROV\odb\libodb-mysql-2.4.0\lib;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
