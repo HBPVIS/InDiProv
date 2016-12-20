@@ -44,3 +44,5 @@
 /indiprov/Model/actedOnBehalfOf-odb.ixx
 /indiprov/Model/actedOnBehalfOf.sql
 /*.opensdf
+/build
+/CMakeFiles
