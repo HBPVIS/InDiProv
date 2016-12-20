@@ -1,3 +1,5 @@
+#define DATABASE_MYSQL
+
 #include <memory>   // std::auto_ptr
 #include <iostream>
 
@@ -16,11 +18,31 @@
 #include "controller/wasInformedBy-actions.hxx"
 #include "controller/wasAssociatedWith-actions.hxx"
 #include "controller/actedOnBehalfOf-actions.hxx"
+//
+//#include <nett/nett.h>
+//#include <../schema/string_message.pb.h>
 
 using namespace std;
 using namespace odb::core;
 
 int main (int argc, char* argv[]) {
+	const std::string endpoint("tcp://127.0.0.1:6555");
+
+	//nett::initialize(endpoint);
+	//auto slotOut = nett::make_slot_out<string_message>("string_event");
+
+	//auto slotIn = nett::make_slot_in<string_message>();
+	//slotIn->connect(nett::slot_address(endpoint, "string_event"));
+
+	//std::this_thread::sleep_for(std::chrono::seconds(1)); //give time to communicate subscription topics
+
+	//string_message string_message_one;
+	//string_message_one.set_value("publish as string_event");
+
+	//slotOut->send(string_message_one);
+	//auto msg = slotIn->receive();
+	//msg.SerializeToOstream(&std::cout);
+
 	try {
 		auto_ptr<database> db(create_database (argc, argv));
 
@@ -79,5 +101,7 @@ int main (int argc, char* argv[]) {
 		cin >> nope;
 		return 1;
 	}
+	string nope;
+	cin >> nope;
 	return 0;
 }
