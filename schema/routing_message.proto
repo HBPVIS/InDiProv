@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message routing_message
-{
-  string socket = 1;
-  string slot_tag = 2;
-}

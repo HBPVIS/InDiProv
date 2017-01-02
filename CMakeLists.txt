@@ -52,9 +52,7 @@ include_directories (${ZMQ_INCLUDE_DIR})
 include_directories (${PROTOBUF_INCLUDE_DIR})
 include_directories (${NETT_SCHEMA_DIR})
 
-add_event ( driver float_message )
-add_event ( driver string_message )
-add_event ( driver routing_message )
+add_event ( driver creation_messages )
 
 add_executable( driver ${ProjectSources} ${source})
 target_link_libraries( driver ${LIBODB_LIBRARY} )

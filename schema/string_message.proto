@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-message string_message
-{
-  string value = 1; //note: find out what '1' actually means
-}

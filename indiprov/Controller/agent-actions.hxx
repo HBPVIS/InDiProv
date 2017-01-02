@@ -7,6 +7,8 @@
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
 
+#include <../schema/creation_messages.pb.h>
+
 #include "database.hxx" // create_database
 
 #include "model/agent.hxx"
@@ -21,6 +23,10 @@ string createAgent(auto_ptr<database>& db, string name) {
 	string id = db->persist(agent);
 	t.commit();
 	return id;
+}
+
+string createPROV(auto_ptr<database>& db, agent_creation msg) {
+	return createAgent(db, msg.name());
 }
 
 bool deleteAgent(auto_ptr<database>& db, string name) {

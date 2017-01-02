@@ -20,7 +20,7 @@
 #include "controller/actedOnBehalfOf-actions.hxx"
 
 #include <nett/nett.h>
-#include <../schema/string_message.pb.h>
+#include <../schema/creation_messages.pb.h>
 
 using namespace std;
 using namespace odb::core;
@@ -29,22 +29,25 @@ int main (int argc, char* argv[]) {
 	const std::string endpoint("tcp://127.0.0.1:6555");
 
 	nett::initialize(endpoint);
-	auto slotOut = nett::make_slot_out<string_message>("string_event");
-	auto slotIn = nett::make_slot_in<string_message>();
-	slotIn->connect(nett::slot_address(endpoint, "string_event"));
+	auto slotOut = nett::make_slot_out<agent_creation>("agent_creation");
+	auto slotIn = nett::make_slot_in<agent_creation>();
+	slotIn->connect(nett::slot_address(endpoint, "agent_creation"));
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(100)); //give time to communicate subscription topics
+	std::this_thread::sleep_for(std::chrono::seconds(1)); //give time to communicate subscription topics
 
-	string_message string_message_one;
-	string_message_one.set_value("publish as string_event");
+	agent_creation agentmessage;
+	agentmessage.set_name("cyrus");
 
-	slotOut->send(string_message_one);
-	auto msg = slotIn->receive();
-	auto val = msg.value();
-	cout << val << std::endl;
+	slotOut->send(agentmessage);
 
 	try {
 		auto_ptr<database> db(create_database (argc, argv));
+
+
+		auto msg = slotIn->receive();
+		auto name = msg.name();
+		cout << name << std::endl;
+		cout << "create " << createPROV(db, msg) << std::endl;
 
 		cout << "create " << createEntity(db, "RWTH") << std::endl;
 		cout << "create " << createEntity(db, "VR Lab") << std::endl;

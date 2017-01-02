@@ -7,6 +7,8 @@
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
 
+#include <../schema/creation_messages.pb.h>
+
 #include "database.hxx" // create_database
 
 #include "model/activity.hxx"
@@ -21,6 +23,10 @@ int createActivity(auto_ptr<database>& db, string name, unsigned long start, uns
 	int id = db->persist(activity);
 	t.commit();
 	return id;
+}
+
+int createPROV(auto_ptr<database>& db, activity_creation message) {
+	return createActivity(db, message.name(), message.start(), message.end());
 }
 
 bool deleteActivity(auto_ptr<database>& db, long id) {

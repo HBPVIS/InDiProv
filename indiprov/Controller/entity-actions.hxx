@@ -23,6 +23,10 @@ string createEntity(auto_ptr<database>& db, string name) {
 	return id;
 }
 
+string createPROV(auto_ptr<database>& db, entity_creation msg) {
+	return createEntity(db, msg.name());
+}
+
 bool deleteEntity(auto_ptr<database>& db, string name) {
 	bool deleted = false;
 	transaction t(db->begin());
