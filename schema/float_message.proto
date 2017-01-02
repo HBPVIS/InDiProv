@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message float_message
+{
+  float value = 1;
+}

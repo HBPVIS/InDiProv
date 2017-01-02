@@ -46,3 +46,5 @@
 /*.opensdf
 /build
 /CMakeFiles
+/schema/*.h
+/schema/*.cc
