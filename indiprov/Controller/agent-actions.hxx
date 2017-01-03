@@ -7,12 +7,11 @@
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
 
-#include <../schema/creation_messages.pb.h>
-
 #include "database.hxx" // create_database
 
 #include "model/agent.hxx"
 #include "model/agent-odb.hxx"
+#include "model/creation_messages.pb.h"
 
 using namespace std;
 using namespace odb::core;

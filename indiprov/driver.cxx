@@ -20,7 +20,7 @@
 #include "controller/actedOnBehalfOf-actions.hxx"
 
 #include <nett/nett.h>
-#include <../schema/creation_messages.pb.h>
+#include "model/creation_messages.pb.h"
 
 using namespace std;
 using namespace odb::core;

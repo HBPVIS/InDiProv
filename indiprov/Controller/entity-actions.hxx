@@ -11,6 +11,7 @@
 
 #include "model/entity.hxx"
 #include "model/entity-odb.hxx"
+#include "model/creation_messages.pb.h"
 
 using namespace std;
 using namespace odb::core;

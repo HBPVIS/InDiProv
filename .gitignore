@@ -46,5 +46,5 @@
 /*.opensdf
 /build
 /CMakeFiles
-/schema/*.h
-/schema/*.cc
+/indiprov/Model/*.pb.h
+/indiprov/Model/*.pb.cc
