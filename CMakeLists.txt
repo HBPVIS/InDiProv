@@ -9,6 +9,8 @@ set ( LIBODB_DB_LIBRARY "" CACHE FILEPATH "The odb db library to link against" )
 
 set ( DB_CONNECTOR_INCLUDE_PATH "" CACHE PATH "The db connector include path" )
 set ( DB_CONNECTOR_LIBRARY "" CACHE FILEPATH "The db connector library to link against" )
+set ( DB_USER "root" CACHE STRING "DB user name")
+set ( DB_PASS "password" CACHE STRING "DB password")
 
 set ( NETT_INCLUDE_DIR "" CACHE PATH "The nett include path" )
 set ( NETT_LIBRARY "" CACHE FILEPATH "The nett library to link against" )
@@ -23,8 +25,6 @@ set ( PROTOBUF_LIBRARY "" CACHE FILEPATH "The protobuf library to link against" 
 set ( PROTOBUF_LIBRARY_DEBUG "" CACHE FILEPATH "The protobuf library to link against" )
 
 set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/model CACHE INTERNAL "model directory")
-set ( DBUSER "root" CACHE STRING "DB user name")
-set ( DBPASS "password" CACHE STRING "DB password")
 
 file(GLOB models
 	"${MODEL_DIR}/*.hxx"
