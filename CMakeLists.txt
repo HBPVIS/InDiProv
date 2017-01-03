@@ -47,24 +47,23 @@ file(GLOB elementaryQuerys
 file(GLOB querys
 	"${MODEL_DIR}/*.sql"
 )
-exec_program("mysql" ARGS "--user=${DBUSER}" "--password=${DBPASS} -e" "\"DROP DATABASE provenance\"" OUTPUT_VARIABLE output)
-exec_program("mysql" ARGS "--user=${DBUSER}" "--password=${DBPASS}" "-e \"CREATE DATABASE provenance\"" OUTPUT_VARIABLE output)
+exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS} -e" "\"DROP DATABASE provenance\"" OUTPUT_VARIABLE output)
+exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS}" "-e \"CREATE DATABASE provenance\"" OUTPUT_VARIABLE output)
 message("  creating elementary tables...")
 foreach(query ${elementaryQuerys})
 	list(REMOVE_ITEM querys ${query})
-	message("    mysql --user=${DBUSER} --password=${DBPASS} --database=provenance < ${query}")
-	execute_process(COMMAND "mysql" "--user=${DBUSER}" "--password=${DBPASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
+	message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+	execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
 endforeach()
 message("  creating cross tables...")
 foreach(query ${querys})
-	message("    mysql --user=${DBUSER} --password=${DBPASS} --database=provenance < ${query}")
-	execute_process(COMMAND "mysql" "--user=${DBUSER}" "--password=${DBPASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
+	message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+	execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
 endforeach()
 message("mysql db setup complete.")
 
 file(GLOB source
-	"indiprov/*.hxx"
-	"indiprov/*.cxx"
+	"indiprov/database.cxx"
 	"indiprov/Model/*.hxx"
 	"indiprov/Model/*.cxx"
 	"indiprov/Model/*.ixx"
@@ -93,10 +92,16 @@ include_directories (${ZMQ_INCLUDE_DIR})
 include_directories (${PROTOBUF_INCLUDE_DIR})
 include_directories (${MODEL_DIR})
 
-add_executable( driver ${source})
-target_link_libraries( driver ${LIBODB_LIBRARY} )
-target_link_libraries( driver ${LIBODB_DB_LIBRARY} )
-target_link_libraries( driver ${DB_CONNECTOR_LIBRARY} )
-target_link_libraries( driver optimized ${NETT_LIBRARY} debug ${NETT_LIBRARY_DEBUG})
-target_link_libraries( driver ${ZMQ_LIBRARY} )
-target_link_libraries( driver optimized ${PROTOBUF_LIBRARY} debug ${PROTOBUF_LIBRARY_DEBUG})
+macro (add_target_and_link target)
+	add_executable( ${target} "indiprov/${target}.cxx" ${source})
+	target_link_libraries( ${target} ${LIBODB_LIBRARY} )
+	target_link_libraries( ${target} ${LIBODB_DB_LIBRARY} )
+	target_link_libraries( ${target} ${DB_CONNECTOR_LIBRARY} )
+	target_link_libraries( ${target} optimized ${NETT_LIBRARY} debug ${NETT_LIBRARY_DEBUG})
+	target_link_libraries( ${target} ${ZMQ_LIBRARY} )
+	target_link_libraries( ${target} optimized ${PROTOBUF_LIBRARY} debug ${PROTOBUF_LIBRARY_DEBUG})
+endmacro()
+
+add_target_and_link(server)
+add_target_and_link(client)
+add_target_and_link(tests)
