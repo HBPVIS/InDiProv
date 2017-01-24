@@ -1,19 +1,27 @@
-#ifndef ACTIVITY_HXX
-#define ACTIVITY_HXX
+#ifndef VERTEX_HXX
+#define VERTEX_HXX
 
 #include <string>
 #include <cstddef> // std::size_t
+#include <iostream> //for namecheck
 
 #include <odb/core.hxx>
 
+enum vertexType { Agent, Activity, Entity };
+
 #pragma db object
-class Activity {
+class Vertex {
 
 public:
-	Activity(const std::string& name,
+	Vertex(vertexType type,
+		const std::string& name,
 		unsigned long start,
 		unsigned long end) 
-		: name_(name), start_(start), end_(end) {	}
+		: type_(type), name_(name), start_(start), end_(end) {	}
+	
+	const vertexType type() const {
+		return type_;
+	}
 
 	const std::string& name() const {
 		return name_;
@@ -27,18 +35,23 @@ public:
 		return end_;
 	}
 
+	unsigned getId() const {
+		return id_;
+	}
+
 private:
 	friend class odb::access;
 
-	Activity() {}
+	Vertex() {}
 
 #pragma db id auto
 	unsigned long id_;
 
+	vertexType type_;
 	std::string name_;
 	unsigned long start_;
 	unsigned long end_;
 
 };
 
-#endif // ACTIVITY_HXX
+#endif // VERTEX_HXX
