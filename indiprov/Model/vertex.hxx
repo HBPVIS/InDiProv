@@ -7,7 +7,11 @@
 
 #include <odb/core.hxx>
 
-enum vertexType { Agent, Activity, Entity };
+enum vertexType { 
+	Agent = 0,
+	Activity = 1, 
+	Entity = 2
+};
 
 #pragma db object
 class Vertex {

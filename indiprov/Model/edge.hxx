@@ -8,13 +8,13 @@ using std::tr1::shared_ptr;
 
 #include "vertex.hxx"
 enum edgeType {
-	wasGeneratedBy,
-	wasDerivedFrom,
-	wasAttributedTo,
-	used,
-	wasInformedBy,
-	wasAssociatedWith,
-	actedOnBehalfOf
+	wasGeneratedBy = 0,
+	wasDerivedFrom = 1,
+	wasAttributedTo = 2,
+	used = 3,
+	wasInformedBy = 4,
+	wasAssociatedWith = 5,
+	actedOnBehalfOf = 6
 };
 
 static vertexType getVertexType(edgeType edge, bool firstVertex) {

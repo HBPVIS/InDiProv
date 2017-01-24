@@ -21,9 +21,38 @@ int main (int argc, char* argv[]) {
 	const std::string endpoint("tcp://127.0.0.1:6555");
 
 	nett::initialize(endpoint);
+	auto slotOut = nett::make_slot_out<Creation>("creation");
+	auto slotIn = nett::make_slot_in<Creation>();
+	slotIn->connect(endpoint, "creation");
+
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	Creation message;
+	Creation::NewVertex* vert1 = message.add_vertices();
+	vert1->set_type(Creation::Agent);
+	vert1->set_name("cyrus");
+	vert1->set_start(0);
+	vert1->set_end(0);
+
+	Creation::NewVertex* vert2 = message.add_vertices();
+	vert2->set_type(Creation::Agent);
+	vert2->set_name("cyriel");
+	vert2->set_start(0);
+	vert2->set_end(0);
+
+	slotOut->send(message);
+
+
+	
 
 	try {
 		auto_ptr<database> db(create_database (argc, argv));
+
+		auto msg = slotIn->receive();
+		for (int i = 0; i < msg.vertices_size(); i++) {
+			auto vert = msg.vertices(i);
+			createVertex(db, (vertexType)vert.type(), vert.name(), vert.start(), vert.end());
+		}
 
 		long id1 = createVertex(db, Agent, "cyremur", 0, 13);
 		long id2 = createVertex(db, Agent, "mercury", 0, 13);
