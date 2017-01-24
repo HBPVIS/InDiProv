@@ -14,6 +14,7 @@ using std::tr1::shared_ptr;
 
 #include "model/edge.hxx"
 #include "model/edge-odb.hxx"
+#include "model/creation_messages.pb.h"
 
 using namespace std;
 using namespace odb::core;
@@ -24,7 +25,7 @@ int createEdge(auto_ptr<database>& db, edgeType type, long firstId, long secondI
 	shared_ptr<Vertex> first(
 		db->query_one<Vertex>(query<Vertex>::id == firstId));
 	if (first.get() == 0 || first.get()->GetType() != getVertexType(type, true)) {
-		cerr << "First vertex invalid!" << endl;
+		cerr << "First vertex invalid! " << edgeTypeToString(type) << " not created." << endl;
 		t.commit();
 		return -1;
 	}
@@ -32,7 +33,7 @@ int createEdge(auto_ptr<database>& db, edgeType type, long firstId, long secondI
 	shared_ptr<Vertex> second(
 		db->query_one<Vertex>(query<Vertex>::id == secondId));
 	if (second.get() == 0 || second.get()->GetType() != getVertexType(type, false)) {
-		cerr << "Second vertex invalid!" << endl;
+		cerr << "Second vertex invalid!" << edgeTypeToString(type) << " not created." << endl;
 		t.commit();
 		return -1;
 	}

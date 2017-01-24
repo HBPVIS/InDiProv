@@ -73,13 +73,10 @@ static std::string edgeTypeToString(edgeType edge) {
 	}
 }
 
-
-
 #pragma db object
 class Edge {
 
 public:
-
 	Edge(edgeType type, shared_ptr<Vertex> first, shared_ptr<Vertex> second) {
 		type_ = type;
 		first_ = first;
