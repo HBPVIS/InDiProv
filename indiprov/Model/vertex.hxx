@@ -19,23 +19,23 @@ public:
 		unsigned long end) 
 		: type_(type), name_(name), start_(start), end_(end) {	}
 	
-	const vertexType type() const {
+	const vertexType GetType() const {
 		return type_;
 	}
 
-	const std::string& name() const {
+	const std::string& GetName() const {
 		return name_;
 	}
 
-	unsigned long start() const {
+	unsigned long GetStart() const {
 		return start_;
 	}
 
-	unsigned long end() const {
+	unsigned long GetEnd() const {
 		return end_;
 	}
 
-	unsigned getId() const {
+	unsigned GetId() const {
 		return id_;
 	}
 

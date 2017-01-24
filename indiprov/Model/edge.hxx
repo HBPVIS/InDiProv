@@ -7,13 +7,79 @@ using std::tr1::shared_ptr;
 #include <odb/core.hxx>
 
 #include "vertex.hxx"
+enum edgeType {
+	wasGeneratedBy,
+	wasDerivedFrom,
+	wasAttributedTo,
+	used,
+	wasInformedBy,
+	wasAssociatedWith,
+	actedOnBehalfOf
+};
 
-enum edgeType { actedOnBehalfOf, wasAttributedTo };
+static vertexType getVertexType(edgeType edge, bool firstVertex) {
+	switch (edge) {
+	case wasGeneratedBy:
+		if (firstVertex) {
+			return Entity;
+		} else {
+			return Activity;
+		}
+	case wasDerivedFrom:
+		return Entity;
+	case wasAttributedTo:
+		if (firstVertex) {
+			return Entity;
+		} else {
+			return Agent;
+		}
+	case used:
+		if (firstVertex) {
+			return Activity;
+		} else {
+			return Entity;
+		}
+	case wasInformedBy:
+		return Activity;
+	case wasAssociatedWith:
+		if (firstVertex) {
+			return Activity;
+		} else {
+			return Agent;
+		}
+	case actedOnBehalfOf:
+		return Agent;
+	}
+}
+
+static std::string edgeTypeToString(edgeType edge) {
+	switch (edge) {
+	case wasGeneratedBy:
+		return "wasGeneratedBy";
+	case wasDerivedFrom:
+		return "wasDerivedFrom";
+	case wasAttributedTo:
+		return "wasAttributedTo";
+	case used:
+		return "used";
+	case wasInformedBy:
+		return "wasInformedBy";
+	case wasAssociatedWith:
+		return "wasAssociatedWith";
+	case actedOnBehalfOf:
+		return "actedOnBehalfOf";
+	default:
+		return "unknown";
+	}
+}
+
+
 
 #pragma db object
 class Edge {
 
 public:
+
 	Edge(edgeType type, shared_ptr<Vertex> first, shared_ptr<Vertex> second) {
 		type_ = type;
 		first_ = first;
@@ -25,14 +91,7 @@ public:
 	}
 
 	const std::string getTypeString() {
-		switch (type_) {
-		case actedOnBehalfOf:
-			return "actedOnBehalfOf";
-		case wasAttributedTo:
-			return "wasAttributedTo";
-		default:
-			return "unknown";
-		}
+		return edgeTypeToString(type_);
 	}
 
 	const long getId() {

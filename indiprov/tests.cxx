@@ -40,9 +40,9 @@ int main (int argc, char* argv[]) {
 		result<Edge> r(db->query<Edge>(query<Edge>::first == id1));
 
 		for (result<Edge>::iterator i(r.begin()); i != r.end(); ++i) {
-			result<Vertex> res(db->query<Vertex>(query<Vertex>::id == i->getSecond()->getId()));
+			result<Vertex> res(db->query<Vertex>(query<Vertex>::id == i->getSecond()->GetId()));
 			for (result<Vertex>::iterator j(res.begin()); j != res.end(); ++j) {
-				cout << vert->name() << " " << i->getTypeString() << " " << j->name() << endl;
+				cout << vert->GetName() << " " << i->getTypeString() << " " << j->GetName() << endl;
 			}
 		}
 		t.commit();

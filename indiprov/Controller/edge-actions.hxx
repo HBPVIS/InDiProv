@@ -23,16 +23,16 @@ int createEdge(auto_ptr<database>& db, edgeType type, long firstId, long secondI
 
 	shared_ptr<Vertex> first(
 		db->query_one<Vertex>(query<Vertex>::id == firstId));
-	if (first.get() == 0) {
-		cerr << "First vertex invalid!";
+	if (first.get() == 0 || first.get()->GetType() != getVertexType(type, true)) {
+		cerr << "First vertex invalid!" << endl;
 		t.commit();
 		return -1;
 	}
 
 	shared_ptr<Vertex> second(
 		db->query_one<Vertex>(query<Vertex>::id == secondId));
-	if (second.get() == 0) {
-		cerr << "Second vertex invalid!";
+	if (second.get() == 0 || second.get()->GetType() != getVertexType(type, false)) {
+		cerr << "Second vertex invalid!" << endl;
 		t.commit();
 		return -1;
 	}
@@ -55,5 +55,6 @@ bool deleteEdge(auto_ptr<database>& db, long id) {
 	t.commit();
 	return deleted;
 }
+
 
 #endif // EDGE_ACTIONS_HXX

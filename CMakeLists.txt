@@ -27,7 +27,8 @@ set ( PROTOBUF_LIBRARY_DEBUG "" CACHE FILEPATH "The protobuf library to link aga
 set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/model CACHE INTERNAL "model directory")
 
 file(GLOB models
-	"${MODEL_DIR}/*.hxx"
+	"${MODEL_DIR}/vertex.hxx"
+	"${MODEL_DIR}/edge.hxx"
 )
 
 message("starting odb compiler...")
@@ -38,28 +39,16 @@ endforeach()
 message("odb compilation finished.")
 message("")
 
-message("preparing mysql db...")
-file(GLOB elementaryQuerys
-	"${MODEL_DIR}/activity.sql"
-	"${MODEL_DIR}/agent.sql"
-	"${MODEL_DIR}/entity.sql"
-)
-file(GLOB querys
-	"${MODEL_DIR}/*.sql"
-)
 exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS} -e" "\"DROP DATABASE provenance\"" OUTPUT_VARIABLE output)
 exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS}" "-e \"CREATE DATABASE provenance\"" OUTPUT_VARIABLE output)
+
 message("  creating elementary tables...")
-foreach(query ${elementaryQuerys})
-	list(REMOVE_ITEM querys ${query})
-	message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
-	execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
-endforeach()
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/vertex.sql" OUTPUT_VARIABLE output)
+
 message("  creating cross tables...")
-foreach(query ${querys})
-	message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
-	execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${query}" OUTPUT_VARIABLE output)
-endforeach()
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/edge.sql" OUTPUT_VARIABLE output)
 message("mysql db setup complete.")
 
 file(GLOB source
