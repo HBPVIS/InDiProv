@@ -1,18 +1,31 @@
 syntax = "proto3";
 
-message agent_creation
-{
-  string name = 1;
-}
-
-message activity_creation
-{
-  string name = 1;
-	int64 start = 2;
-	int64 end = 3;
-}
-
-message entity_creation
-{
-  string name = 1;
+message Creation {
+	enum edgeType {
+		wasGeneratedBy = 0;
+		wasDerivedFrom = 1;
+		wasAttributedTo = 2;
+		used = 3;
+		wasInformedBy = 4;
+		wasAssociatedWith = 5;
+		actedOnBehalfOf = 6;
+	}
+	enum vertexType { 
+		Agent = 0;
+		Activity = 1;
+		Entity = 2;
+	}
+	message NewVertex{
+		vertexType type = 1;
+		string name = 2;
+		uint64 start = 3;
+		uint64 end = 4;
+	}
+	message NewEdge{
+		edgeType type = 1;
+		int64 firstId = 2;
+		int64 secondId = 3;
+	}
+	repeated NewVertex vertices = 1;
+	repeated NewEdge edges = 2;
 }
