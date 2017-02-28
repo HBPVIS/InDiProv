@@ -3,9 +3,9 @@ cmake_minimum_required( VERSION 2.8 )
 project (InDiProvCMake)
 
 set ( LIBODB_INCLUDE_PATH "" CACHE PATH "The odb main include path" )
-set ( LIBODB_DB_INCLUDE_PATH "" CACHE PATH "The odb db implementation include path" )
+set ( LIBODBDB_INCLUDE_PATH "" CACHE PATH "The odb db implementation include path" )
 set ( LIBODB_LIBRARY "" CACHE FILEPATH "The odb library to link against" )
-set ( LIBODB_DB_LIBRARY "" CACHE FILEPATH "The odb db library to link against" )
+set ( LIBODBDB_LIBRARY "" CACHE FILEPATH "The odb db library to link against" )
 
 set ( DB_CONNECTOR_INCLUDE_PATH "" CACHE PATH "The db connector include path" )
 set ( DB_CONNECTOR_LIBRARY "" CACHE FILEPATH "The db connector library to link against" )
@@ -20,7 +20,7 @@ set ( ZMQ_INCLUDE_DIR "" CACHE PATH "Path to the include directory of zmq" )
 set ( ZMQ_LIBRARY "" CACHE FILEPATH "The zmq library to link against" )
 
 set ( PROTOBUF_INCLUDE_DIR "" CACHE PATH "The protobuf include directory" )
-set ( PROTOBUF_BIN "" CACHE PATH "The protobuf binary directory for the schema compiler 'protoc'" )
+set ( PROTOBUF_BIN "" CACHE FILEPATH "The protobuf binary directory for the schema compiler 'protoc'" )
 set ( PROTOBUF_LIBRARY "" CACHE FILEPATH "The protobuf library to link against" )
 set ( PROTOBUF_LIBRARY_DEBUG "" CACHE FILEPATH "The protobuf library to link against" )
 

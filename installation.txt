@@ -1,0 +1,40 @@
+CMake Config: Visual Studio 12 2013 (32 Bit) (Debug)
+
+ZeroMQ http://zeromq.org/intro:get-the-software
+	Download and install ZeroMQ
+	
+ProtoBuf https://github.com/google/protobuf/releases
+	Download and build ProtoBuf
+		Provided CMake
+			Build without MSVC static runtime
+		
+nett https://devhub.vr.rwth-aachen.de/VR-Group/nett
+	Download and build nett
+		Provided CMake
+			Include ZeroMQ and ProtoBuf
+			
+MySQL https://dev.mysql.com/downloads/
+	Install MySQL
+	Install MySQL Connector C: https://dev.mysql.com/downloads/connector/c/
+		
+ODB http://codesynthesis.com/products/odb/download.xhtml
+	Install odb compiler and include in PATH
+	Download and build libodb
+		Provided Solution
+	Download and build libodb-mysql
+		Provided Solution
+			For libmysql.lib, we use MySQL Connector C
+			Add libodb and MysqlConnectorC/include to VC++ includes
+			Add libodb/lib and MysqlConnectorC/lib to VC++ libraries
+
+InDiProv
+	Download and build InDiProv
+		Provided CMake
+			DB: MySQL Connector C include/lib and DB credentials (for DB initialization)
+			LIBODB: libodb core include/lib
+			LIBODBDB: libodb-mysql include/lib
+			NETT: nett include/lib
+			PROTOBUF: protobuf include/lib and protoc.exe
+			ZMQ: ZeroMQ include/lib
+		Run Tests project
+			Command line arguments: "--user root --password password --database provenance"
