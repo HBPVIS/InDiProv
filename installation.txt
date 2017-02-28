@@ -11,7 +11,7 @@ ProtoBuf https://github.com/google/protobuf/releases
 nett https://devhub.vr.rwth-aachen.de/VR-Group/nett
 	Download and build nett
 		Provided CMake
-			Include ZeroMQ and ProtoBuf
+			Include ZeroMQ and ProtoBuf (ProtoBuf /include is called /src)
 			
 MySQL https://dev.mysql.com/downloads/
 	Install MySQL
@@ -24,17 +24,17 @@ ODB http://codesynthesis.com/products/odb/download.xhtml
 	Download and build libodb-mysql
 		Provided Solution
 			For libmysql.lib, we use MySQL Connector C
-			Add libodb and MysqlConnectorC/include to VC++ includes
+			Add libodb (root directory is include directory) and MysqlConnectorC/include to VC++ includes
 			Add libodb/lib and MysqlConnectorC/lib to VC++ libraries
 
 InDiProv
 	Download and build InDiProv
 		Provided CMake
 			DB: MySQL Connector C include/lib and DB credentials (for DB initialization)
-			LIBODB: libodb core include/lib
-			LIBODBDB: libodb-mysql include/lib
+			LIBODB: libodb core include/lib (libodb root directory is include directory)
+			LIBODBDB: libodb-mysql include/lib (libodb-mysql root directory is include directory)
 			NETT: nett include/lib
-			PROTOBUF: protobuf include/lib and protoc.exe
+			PROTOBUF: protobuf include/lib and protoc.exe (include directory is /src)
 			ZMQ: ZeroMQ include/lib
 		Run Tests project
 			Command line arguments: "--user root --password password --database provenance"
