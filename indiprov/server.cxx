@@ -40,7 +40,9 @@ int main (int argc, char* argv[]) {
 	slotIn->connect(endpoint, "creation");
 	cout << "Server startup complete." << endl;
 
-	pollingThread = std::make_shared<std::thread>(&handleMessage);
+	//for some reason this is not working from a secondary thread
+	//pollingThread = std::make_shared<std::thread>(&handleMessage);
+	handleMessage();
 
 	return 0;
 }
