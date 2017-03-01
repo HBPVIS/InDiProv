@@ -18,32 +18,44 @@
 using namespace std;
 using namespace odb::core;
 
-const std::string endpoint("tcp://127.0.0.1:6555");
+const string endpoint("tcp://127.0.0.1:6555");
+const string altEndpoint("tcp://127.0.0.1:6556");
+shared_ptr<thread> pollingThread;
+shared_ptr<nett::slot_in<Creation>> slotIn;
+auto_ptr<database> db;
 
-
-template <typename T>
-void createPROV(auto_ptr<database>& db, shared_ptr<nett::slot_in<T>>) {
-	return;
-}
-
-template <typename T>
-void receiveLoop(auto_ptr<database>& db, shared_ptr<nett::slot_in<T>> slotIn) {
-}
-
-
+void handleMessage();
 
 int main (int argc, char* argv[]) {
-
-	nett::initialize(endpoint);
+	cout << "Initializing server..." << endl;
+	nett::initialize(altEndpoint);
 	try {
-		auto_ptr<database> db(create_database (argc, argv));
+		db = create_database(argc, argv);
 	} catch(const odb::exception& e) {
 		cerr << e.what () << endl;
-		string nope;
-		cin >> nope;
+		Sleep(5000);
 		return 1;
 	}
-	string nope;
-	cin >> nope;
+	slotIn = nett::make_slot_in<Creation>();
+	slotIn->connect(endpoint, "creation");
+	cout << "Server startup complete." << endl;
+
+	pollingThread = std::make_shared<std::thread>(&handleMessage);
+
 	return 0;
+}
+
+
+void handleMessage() {
+	while (true) {
+		cout << "Listening..." << endl;
+		Creation msg = slotIn->receive();
+		cout << "Message received." << endl;
+		for (int i = 0; i < msg.vertices_size(); i++) {
+			auto vert = msg.vertices(i);
+			createVertex(db, (vertexType)vert.type(), vert.name(), vert.start(), vert.end());
+			cout << vert.name() << endl;
+		}
+		cout << endl;
+	}
 }
