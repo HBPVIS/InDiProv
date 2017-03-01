@@ -166,4 +166,5 @@ void newEdgePrompt() {
 	edge->set_secondvertname(name2);
 
 	cout << "Sending Edge log info: " << name1 << " " << edgeTypeToString((edgeType)edge->type()) << " " << name2 << endl << endl;
+	slotOut->send(message);
 }

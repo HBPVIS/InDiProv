@@ -44,6 +44,31 @@ int createEdge(auto_ptr<database>& db, edgeType type, long firstId, long secondI
 	return id;
 }
 
+int createEdge(auto_ptr<database>& db, edgeType type, string firstVertName, string secondVertName) {
+	transaction t(db->begin());
+
+	shared_ptr<Vertex> first(
+		db->query_one<Vertex>(query<Vertex>::name == firstVertName));
+	if (first.get() == 0 || first.get()->GetType() != getVertexType(type, true)) {
+		cerr << "First vertex invalid! " << edgeTypeToString(type) << " not created." << endl;
+		t.commit();
+		return -1;
+	}
+
+	shared_ptr<Vertex> second(
+		db->query_one<Vertex>(query<Vertex>::name == secondVertName));
+	if (second.get() == 0 || second.get()->GetType() != getVertexType(type, false)) {
+		cerr << "Second vertex invalid!" << edgeTypeToString(type) << " not created." << endl;
+		t.commit();
+		return -1;
+	}
+
+	Edge edge(type, first, second);
+	long id = db->persist(edge);
+	t.commit();
+	return id;
+}
+
 bool deleteEdge(auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());

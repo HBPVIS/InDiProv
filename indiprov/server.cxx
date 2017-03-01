@@ -55,8 +55,20 @@ void handleMessage() {
 		cout << "Message received." << endl;
 		for (int i = 0; i < msg.vertices_size(); i++) {
 			auto vert = msg.vertices(i);
-			createVertex(db, (vertexType)vert.type(), vert.name(), vert.start(), vert.end());
-			cout << vert.name() << endl;
+			string name = msg.clientname() + "_" + vert.name();
+			int id = createVertex(db, (vertexType)vert.type(), name, vert.start(), vert.end());
+			if (id != -1) {
+				cout << vert.name() << endl;
+			}
+		}
+		for (int i = 0; i < msg.edges_size(); i++) {
+			auto edge = msg.edges(i);
+			string name1 = msg.clientname() + "_" + edge.firstvertname();
+			string name2 = msg.clientname() + "_" + edge.secondvertname();
+			int id = createEdge(db, (edgeType)edge.type(), name1, name2);
+			if (id != -1) {
+				cout << edge.firstvertname() << " " << edgeTypeToString((edgeType)edge.type()) << " " << edge.secondvertname() << endl;
+			}
 		}
 		cout << endl;
 	}
