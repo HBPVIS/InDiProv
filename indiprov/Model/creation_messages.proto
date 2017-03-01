@@ -23,9 +23,10 @@ message Creation {
 	}
 	message NewEdge{
 		edgeType type = 1;
-		int64 firstId = 2;
-		int64 secondId = 3;
+		string firstVertName = 2;
+		string secondVertName = 3;
 	}
-	repeated NewVertex vertices = 1;
-	repeated NewEdge edges = 2;
+	string clientName = 1;
+	repeated NewVertex vertices = 2;
+	repeated NewEdge edges = 3;
 }
