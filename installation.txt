@@ -36,5 +36,10 @@ InDiProv
 			NETT: nett include/lib
 			PROTOBUF: protobuf include/lib and protoc.exe (include directory is /src)
 			ZMQ: ZeroMQ include/lib
+		Copy/Paste DLLs (include debug versions if appropriate)
+			libmysql.dll
+			libzmq-v120-mt-4_0_4.dll
+			odb-2.4-vc12.dll
+			odb-mysql-2.4-vc12.dll
 		Run Tests project
 			Command line arguments: "--user root --password password --database provenance"
