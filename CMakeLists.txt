@@ -26,14 +26,14 @@ if( MSVC )
   set ( PROTOBUF_BIN "" CACHE FILEPATH "The protobuf binary directory for the schema compiler 'protoc'" )
   set ( PROTOBUF_LIBRARY "" CACHE FILEPATH "The protobuf library to link against" )
   set ( PROTOBUF_LIBRARY_DEBUG "" CACHE FILEPATH "The protobuf library to link against" )
-endif()
 elseif( UNIX )
+  set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++14 -fPIC" )
   include( Findlibzmq )
   find_package( Protobuf REQUIRED )
   find_package( libzmq REQUIRED )
 endif()
 
-set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/model CACHE INTERNAL "model directory")
+set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/Model CACHE INTERNAL "model directory")
 
 file(GLOB models
 	"${MODEL_DIR}/vertex.hxx"
@@ -69,7 +69,9 @@ file(GLOB source
 )
 
 macro (add_event event_name)
-  exec_program("${PROTOBUF_BIN}" ARGS "${MODEL_DIR}/${event_name}.proto" "--proto_path=${MODEL_DIR}" "--cpp_out=${MODEL_DIR}" OUTPUT_VARIABLE output )
+  if (MSVC)  
+    exec_program("${PROTOBUF_BIN}" ARGS "${MODEL_DIR}/${event_name}.proto" "--proto_path=${MODEL_DIR}" "--cpp_out=${MODEL_DIR}" OUTPUT_VARIABLE output )
+  endif()
   if (NOT EXISTS "${MODEL_DIR}/${event_name}.pb.h" OR NOT EXISTS "${MODEL_DIR}/${event_name}.pb.cc" )
 		message("  ${output}")
     message("  protoc error. files not generated.")
