@@ -20,7 +20,7 @@ using namespace odb::core;
 
 std::string clientname;
 const std::string endpoint("tcp://127.0.0.1:6555");
-shared_ptr<nett::slot_out<Creation>> slotOut;
+std::shared_ptr<nett::slot_out<Creation>> slotOut;
 bool running = true;
 
 void loginPrompt();
