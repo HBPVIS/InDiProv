@@ -9,9 +9,9 @@
 
 #include "database.hxx" // create_database
 
-#include "model/vertex.hxx"
-#include "model/vertex-odb.hxx"
-#include "model/creation_messages.pb.h"
+#include "../Model/vertex.hxx"
+#include "../Model/vertex-odb.hxx"
+#include "../Model/creation_messages.pb.h"
 
 using namespace odb::core;
 
