@@ -14,7 +14,6 @@
 #include <nett/nett.h>
 #include "model/creation_messages.pb.h"
 
-using namespace std;
 using namespace odb::core;
 
 int main (int argc, char* argv[]) {
@@ -46,7 +45,7 @@ int main (int argc, char* argv[]) {
 	
 
 	try {
-		auto_ptr<database> db(create_database (argc, argv));
+		std::auto_ptr<database> db(create_database (argc, argv));
 
 		auto msg = slotIn->receive();
 		for (int i = 0; i < msg.vertices_size(); i++) {
@@ -71,19 +70,19 @@ int main (int argc, char* argv[]) {
 		for (result<Edge>::iterator i(r.begin()); i != r.end(); ++i) {
 			result<Vertex> res(db->query<Vertex>(query<Vertex>::id == i->getSecond()->GetId()));
 			for (result<Vertex>::iterator j(res.begin()); j != res.end(); ++j) {
-				cout << vert->GetName() << " " << i->getTypeString() << " " << j->GetName() << endl;
+				std::cout << vert->GetName() << " " << i->getTypeString() << " " << j->GetName() << std::endl;
 			}
 		}
 		t.commit();
-		cout << std::endl << "Tests successful" << std::endl;
+		std::cout << std::endl << "Tests successful" << std::endl;
 
 	} catch(const odb::exception& e) {
-		cerr << e.what () << endl;
-		string nope;
-		cin >> nope;
+		std::cerr << e.what () << std::endl;
+		std::string nope;
+		std::cin >> nope;
 		return 1;
 	}
-	string nope;
-	cin >> nope;
+	std::string nope;
+	std::cin >> nope;
 	return 0;
 }

@@ -13,10 +13,9 @@
 #include "model/vertex-odb.hxx"
 #include "model/creation_messages.pb.h"
 
-using namespace std;
 using namespace odb::core;
 
-long createVertex(auto_ptr<database>& db, vertexType type, string name, unsigned long start, unsigned long end) {
+long createVertex(std::auto_ptr<database>& db, vertexType type, std::string name, unsigned long start, unsigned long end) {
 	Vertex vertex(type, name, start, end);
 	transaction t(db->begin());
 	long id = db->persist(vertex);
@@ -24,10 +23,10 @@ long createVertex(auto_ptr<database>& db, vertexType type, string name, unsigned
 	return id;
 }
 
-bool deleteVertex(auto_ptr<database>& db, long id) {
+bool deleteVertex(std::auto_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
-	auto_ptr<Vertex> vertex(
+	std::auto_ptr<Vertex> vertex(
 		db->query_one<Vertex>(query<Vertex>::id == id));
 	if (vertex.get() != 0) {
 		db->erase<Vertex>(*vertex);
