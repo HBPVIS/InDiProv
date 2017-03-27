@@ -12,9 +12,9 @@ using std::tr1::shared_ptr;
 
 #include "database.hxx" // create_database
 
-#include "model/edge.hxx"
-#include "model/edge-odb.hxx"
-#include "model/creation_messages.pb.h"
+#include "../Model/edge.hxx"
+#include "../Model/edge-odb.hxx"
+#include "../Model/creation_messages.pb.h"
 
 using namespace std;
 using namespace odb::core;
