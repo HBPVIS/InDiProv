@@ -8,11 +8,11 @@
 
 #include "database.hxx" // create_database
 
-#include "controller/vertex-actions.hxx"
-#include "controller/edge-actions.hxx"
+#include "Controller/vertex-actions.hxx"
+#include "Controller/edge-actions.hxx"
 
 #include <nett/nett.h>
-#include "model/creation_messages.pb.h"
+#include "Model/creation_messages.pb.h"
 
 using namespace odb::core;
 

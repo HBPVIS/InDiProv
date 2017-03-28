@@ -9,18 +9,18 @@
 
 #include "database.hxx" // create_database
 
-#include "controller/vertex-actions.hxx"
-#include "controller/edge-actions.hxx"
+#include "Controller/vertex-actions.hxx"
+#include "Controller/edge-actions.hxx"
 
 #include <nett/nett.h>
-#include "model/creation_messages.pb.h"
+#include "Model/creation_messages.pb.h"
 
 using namespace odb::core;
 
 const std::string endpoint("tcp://127.0.0.1:6555");
 const std::string altEndpoint("tcp://127.0.0.1:6556");
-shared_ptr<std::thread> pollingThread;
-shared_ptr<nett::slot_in<Creation>> slotIn;
+std::shared_ptr<std::thread> pollingThread;
+std::shared_ptr<nett::slot_in<Creation>> slotIn;
 std::auto_ptr<database> db;
 
 void handleMessage();
@@ -32,7 +32,6 @@ int main (int argc, char* argv[]) {
 		db = create_database(argc, argv);
 	} catch(const odb::exception& e) {
 		std::cerr << e.what () << std::endl;
-		Sleep(5000);
 		return 1;
 	}
 	slotIn = nett::make_slot_in<Creation>();
