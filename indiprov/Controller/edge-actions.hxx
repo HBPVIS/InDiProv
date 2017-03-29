@@ -14,7 +14,6 @@ using std::tr1::shared_ptr;
 
 #include "../Model/edge.hxx"
 #include "../Model/edge-odb.hxx"
-#include "../Model/creation_messages.pb.h"
 
 using namespace odb::core;
 

@@ -11,7 +11,6 @@
 
 #include "../Model/vertex.hxx"
 #include "../Model/vertex-odb.hxx"
-#include "../Model/creation_messages.pb.h"
 
 using namespace odb::core;
 
