@@ -1,26 +1,12 @@
 #define DATABASE_MYSQL
 
 #include <memory>   // std::auto_ptr
+#include <string>
 #include <iostream>
 #include <thread>
 #include <ctime>
 
-#include <odb/database.hxx>
-#include <odb/transaction.hxx>
-
-#include "database.hxx" // create_database
-
-#include "Controller/vertex-actions.hxx"
-#include "Controller/edge-actions.hxx"
-
-#include <nett/nett.h>
-#include "Model/creation_messages.pb.h"
-
-using namespace odb::core;
-
 std::string clientname;
-const std::string endpoint("tcp://127.0.0.1:6555");
-std::shared_ptr<nett::slot_out<Creation>> slotOut;
 bool running = true;
 
 void loginPrompt();
@@ -29,9 +15,6 @@ void newVertexPrompt();
 void newEdgePrompt();
 
 int main(int argc, char* argv[]) {
-	nett::initialize(endpoint);
-	slotOut = nett::make_slot_out<Creation>("creation");
-
 	loginPrompt();
 	while (running) {
 		mainMenuPrompt();
@@ -78,21 +61,16 @@ void newVertexPrompt() {
 	char ans = getchar();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cout << std::endl;
-	Creation message;
-	message.set_clientname(clientname);
-	Creation::NewVertex* vert = message.add_vertices();
+
 	std::string name;
 	switch (ans) {
 	case '0':
-		vert->set_type(Creation::Activity);
 		std::cout << "Please enter Activity name" << std::endl;
 		break;
 	case '1':
-		vert->set_type(Creation::Agent);
 		std::cout << "Please enter Agent name" << std::endl;
 		break;
 	case '2':
-		vert->set_type(Creation::Entity);
 		std::cout << "Please enter Entity name" << std::endl;
 		break;
 	case 'q':
@@ -102,13 +80,10 @@ void newVertexPrompt() {
 		return;
 	}
 	std::getline(std::cin, name);
-	vert->set_name(name);
+	
 	auto t = time(nullptr);
-	vert->set_start(t);
-	vert->set_end(t);
 
 	std::cout << "Sending Vertex log info: " << name << std::endl << std::endl;
-	slotOut->send(message);
 }
 
 void newEdgePrompt() {
@@ -123,30 +98,20 @@ void newEdgePrompt() {
 	char ans = getchar();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cout << std::endl;
-	Creation message;
-	message.set_clientname(clientname);
-	Creation::NewEdge* edge = message.add_edges();
 	switch (ans) {
 	case '0':
-		edge->set_type(Creation::wasGeneratedBy);
 		break;
 	case '1':
-		edge->set_type(Creation::wasDerivedFrom);
 		break;
 	case '2':
-		edge->set_type(Creation::wasAttributedTo);
 		break;
 	case '3':
-		edge->set_type(Creation::used);
 		break;
 	case '4':
-		edge->set_type(Creation::wasInformedBy);
 		break;
 	case '5':
-		edge->set_type(Creation::wasAssociatedWith);
 		break;
 	case '6':
-		edge->set_type(Creation::actedOnBehalfOf);
 		break;
 	case 'q':
 		return;
@@ -161,9 +126,6 @@ void newEdgePrompt() {
 	std::cout << "Please enter second Vertex name." << std::endl;
 	std::getline(std::cin, name2);
 	std::cout << std::endl;
-	edge->set_firstvertname(name1);
-	edge->set_secondvertname(name2);
 
-	std::cout << "Sending Edge log info: " << name1 << " " << edgeTypeToString((edgeType)edge->type()) << " " << name2 << std::endl << std::endl;
-	slotOut->send(message);
+	//std::cout << "Sending Edge log info: " << name1 << " " << edgeTypeToString((edgeType)edge->type()) << " " << name2 << std::endl << std::endl;
 }
