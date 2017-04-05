@@ -3,6 +3,19 @@
 #include "endpoint.h"
 #include "rapidjson/rapidjson.h"
 
+#include <memory>   // std::auto_ptr
+#include <iostream>
+#include <thread>
+
+#include <odb/database.hxx>
+#include <odb/transaction.hxx>
+
+#include "database.hxx" // create_database
+
+#include "Controller/vertex-actions.hxx"
+#include "Controller/edge-actions.hxx"
+
+using namespace odb::core;
 using namespace Net;
 
 class LogService {
@@ -12,7 +25,9 @@ public:
     , desc("InDiProv Logging API", "0.1")
   { }
 
-  void init(size_t thr = 2) {
+  void init(size_t thr, int argc, char* argv[]) {
+		db = create_database(argc, argv);
+
     auto opts = Net::Http::Endpoint::options()
       .threads(thr)
       .flags(Net::Tcp::Options::InstallSignalHandler);
@@ -32,6 +47,7 @@ public:
   }
 
 private:
+  std::auto_ptr<database> db;
   std::shared_ptr<Net::Http::Endpoint> httpEndpoint;
   Rest::Description desc;
   Rest::Router router;
