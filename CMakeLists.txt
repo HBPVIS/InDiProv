@@ -2,7 +2,7 @@ cmake_minimum_required( VERSION 2.8 )
 
 project (InDiProvCMake)
 
-list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake )
+set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++14 -fPIC" )
 
 set ( LIBODB_INCLUDE_PATH "" CACHE PATH "The odb main include path" )
 set ( LIBODBDB_INCLUDE_PATH "" CACHE PATH "The odb db implementation include path" )
@@ -14,10 +14,10 @@ set ( DB_CONNECTOR_LIBRARY "" CACHE FILEPATH "The db connector library to link a
 set ( DB_USER "root" CACHE STRING "DB user name")
 set ( DB_PASS "password" CACHE STRING "DB password")
 
-if( UNIX )
-  set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++14 -fPIC" )
-  find_package( Threads REQUIRED )
-endif()
+set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server includes" )
+
+find_package(RapidJSON)
+find_package( Threads REQUIRED )
 
 set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/Model CACHE INTERNAL "model directory")
 
@@ -58,11 +58,14 @@ include_directories (${LIBODB_INCLUDE_PATH})
 include_directories (${LIBODBDB_INCLUDE_PATH})
 include_directories (${DB_CONNECTOR_INCLUDE_PATH})
 include_directories (${MODEL_DIR})
+include_directories (${PISTACHE_INCLUDE_PATH})
+include_directories (${RapidJSON_INCLUDE_DIR})
 
 add_executable( server "indiprov/server.cxx" ${source} )
 target_link_libraries( server ${CMAKE_THREAD_LIBS_INIT} )
 target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
 target_link_libraries( server ${DB_CONNECTOR_LIBRARY} )
+target_link_libraries( server net_static)
 
 add_executable( client "indiprov/client.cxx")

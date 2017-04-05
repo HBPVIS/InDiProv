@@ -1,5 +1,12 @@
 #define DATABASE_MYSQL
 
+//pistache includes
+#include "pistache/http.h"
+#include "pistache/description.h"
+#include "pistache/endpoint.h"
+#include "rapidjson/rapidjson.h"
+
+
 #include <memory>   // std::auto_ptr
 #include <iostream>
 #include <thread>
@@ -24,6 +31,15 @@ int main (int argc, char* argv[]) {
 		std::cerr << e.what () << std::endl;
 		return 1;
 	}
+
+	Net::Port port(9080);
+	int thr = 2;
+
+	Net::Address addr(Net::Ipv4::any(), port);
+
+	std::cout << "Cores = " << hardware_concurrency() << std::endl;
+	std::cout << "Using " << thr << " threads" << std::endl;
+
 	std::cout << "Server startup complete." << std::endl;
 
 	return 0;
