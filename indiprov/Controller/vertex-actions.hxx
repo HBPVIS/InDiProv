@@ -35,4 +35,4 @@ bool deleteVertex(std::auto_ptr<database>& db, long id) {
 	return deleted;
 }
 
-#endif VERTEX_ACTIONS_HXX
+#endif // VERTEX_ACTIONS_HXX
