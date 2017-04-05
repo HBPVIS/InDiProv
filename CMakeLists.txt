@@ -19,7 +19,7 @@ set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server includes" )
 find_package(RapidJSON)
 find_package( Threads REQUIRED )
 
-set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/indiprov/Model CACHE INTERNAL "model directory")
+set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/Model CACHE INTERNAL "model directory")
 
 file(GLOB models
 	"${MODEL_DIR}/vertex.hxx"
@@ -47,11 +47,11 @@ execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--d
 message("mysql db setup complete.")
 
 file(GLOB source
-	"indiprov/database.cxx"
-	"indiprov/Model/*.hxx"
-	"indiprov/Model/*.cxx"
-	"indiprov/Model/*.ixx"
-	"indiprov/Controller/*.hxx"
+	"src/database.cxx"
+	"src/Model/*.hxx"
+	"src/Model/*.cxx"
+	"src/Model/*.ixx"
+	"src/Controller/*.hxx"
 )
 
 include_directories (${LIBODB_INCLUDE_PATH})
@@ -61,11 +61,11 @@ include_directories (${MODEL_DIR})
 include_directories (${PISTACHE_INCLUDE_PATH})
 include_directories (${RapidJSON_INCLUDE_DIR})
 
-add_executable( server "indiprov/server.cxx" ${source} )
+add_executable( server "src/server.cxx" ${source} )
 target_link_libraries( server ${CMAKE_THREAD_LIBS_INIT} )
 target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
 target_link_libraries( server ${DB_CONNECTOR_LIBRARY} )
 target_link_libraries( server net_static)
 
-add_executable( client "indiprov/client.cxx")
+add_executable( client "src/client.cxx")
