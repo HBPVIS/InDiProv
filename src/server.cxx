@@ -19,7 +19,7 @@ int main (int argc, char* argv[]) {
 		logger.init(thr, argc, argv);
 	} catch(const odb::exception& e) {
 		std::cerr << e.what () << std::endl;
-		return;
+		return 1;
 	}
 	logger.start();
 

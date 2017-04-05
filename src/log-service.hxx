@@ -64,9 +64,38 @@ private:
       .route(desc.get("/ready"))
       .bind(&LogService::handleReady, this)
       .response(Http::Code::Ok, "Response to the /ready call");
+
+    auto agentPath = desc.path("/agent");
+    auto activityPath = desc.path("/activity");
+    auto entityPath = desc.path("/entity");
+
+    agentPath
+      .route(desc.post("/:name"), "Create an Agent")
+      .bind(&LogService::createAgent, this)
+      .parameter<Rest::Type::String>("name", "The name of the agent to create");
+
+    activityPath
+      .route(desc.post("/:name/:from/:to"), "Create an Activity")
+      .bind(&LogService::createActivity, this);
+
   }
 
   void handleReady(const Rest::Request&, Http::ResponseWriter response) {
     response.send(Http::Code::Ok, "Absolutely\n");
+  }
+
+  void createAgent(const Rest::Request& request, Http::ResponseWriter response) {
+    std::string name = request.param(":name").as<std::string>();
+    auto t = time(nullptr);
+    createVertex(db, Agent, name, t, t);
+    response.send(Http::Code::Ok, name + " created.\n");
+  }
+
+  void createActivity(const Rest::Request& request, Http::ResponseWriter response) {
+    std::string name = request.param(":name").as<std::string>();
+    auto from = request.param(":from").as<uint>();
+    auto to = request.param(":to").as<uint>();
+    createVertex(db, Activity, name, from, to);
+    response.send(Http::Code::Ok, name + " created.\n");
   }
 };
