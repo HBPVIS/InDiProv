@@ -47,6 +47,7 @@ execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--d
 message("mysql db setup complete.")
 
 file(GLOB source
+  "src/log-service.hxx"
 	"src/database.cxx"
 	"src/Model/*.hxx"
 	"src/Model/*.cxx"

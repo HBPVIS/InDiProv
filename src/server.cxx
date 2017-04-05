@@ -6,7 +6,6 @@
 #include "pistache/endpoint.h"
 #include "rapidjson/rapidjson.h"
 
-
 #include <memory>   // std::auto_ptr
 #include <iostream>
 #include <thread>
@@ -14,6 +13,7 @@
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
 
+#include "log-service.hxx"
 #include "database.hxx" // create_database
 
 #include "Controller/vertex-actions.hxx"
@@ -39,6 +39,13 @@ int main (int argc, char* argv[]) {
 
 	std::cout << "Cores = " << hardware_concurrency() << std::endl;
 	std::cout << "Using " << thr << " threads" << std::endl;
+
+	LogService logger(addr);
+
+	logger.init(thr);
+	logger.start();
+	std::cout << "test";
+	logger.shutdown();
 
 	std::cout << "Server startup complete." << std::endl;
 
