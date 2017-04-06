@@ -74,10 +74,19 @@ private:
       .bind(&LogService::createAgent, this)
       .parameter<Rest::Type::String>("name", "The name of the agent to create");
 
+    desc
+      .route(desc.get("/agents"))
+      .bind(&LogService::getAgents, this);
+
     activityPath
       .route(desc.post("/:name/:from/:to"), "Create an Activity")
-      .bind(&LogService::createActivity, this);
+      .bind(&LogService::createActivity, this)
+      .parameter<Rest::Type::String>("name", "The name of the activity to create");
 
+    entityPath
+      .route(desc.post("/:name"), "Create an Entity")
+      .bind(&LogService::createEntity, this)
+      .parameter<Rest::Type::String>("name", "The name of the entity to create");
   }
 
   void handleReady(const Rest::Request&, Http::ResponseWriter response) {
@@ -97,5 +106,21 @@ private:
     auto to = request.param(":to").as<uint>();
     createVertex(db, Activity, name, from, to);
     response.send(Http::Code::Ok, name + " created.\n");
+  }
+
+  void createEntity(const Rest::Request& request, Http::ResponseWriter response) {
+    std::string name = request.param(":name").as<std::string>();
+    auto t = time(nullptr);
+    createVertex(db, Entity, name, t, t);
+    response.send(Http::Code::Ok, name + " created.\n");
+  }
+
+  void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
+    auto verts = getVertex(db, vertexType::Agent);
+    std::string res = "";
+    for(Vertex vert : verts) {
+      res = res + vert.GetName() + "\n";
+    }
+    response.send(Http::Code::Ok, res);
   }
 };

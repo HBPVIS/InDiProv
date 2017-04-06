@@ -3,6 +3,7 @@
 
 #include <memory>   // std::auto_ptr
 #include <iostream>
+#include <vector>
 
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
@@ -33,6 +34,19 @@ bool deleteVertex(std::auto_ptr<database>& db, long id) {
 	}
 	t.commit();
 	return deleted;
+}
+
+std::vector<Vertex> getVertex(std::auto_ptr<database>& db, vertexType vType) {
+	std::vector<Vertex> vec;
+	Vertex vert;
+	transaction t(db->begin());
+	result<Vertex> r (db->query<Vertex>(query<Vertex>::type == vType));
+	for (result<Vertex>::iterator i (r.begin()); i != r.end(); ++i) {
+		i.load(vert);
+		vec.push_back(vert);
+	}
+	t.commit();
+	return vec;
 }
 
 #endif // VERTEX_ACTIONS_HXX

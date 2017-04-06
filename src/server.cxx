@@ -3,6 +3,7 @@
 #include "log-service.hxx"
 
 int main (int argc, char* argv[]) {
+
 	std::cout << "Initializing server..." << std::endl;
 
 	Net::Port port(9080);

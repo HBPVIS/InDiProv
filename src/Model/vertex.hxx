@@ -7,9 +7,9 @@
 
 #include <odb/core.hxx>
 
-enum vertexType { 
+enum vertexType {
 	Agent = 0,
-	Activity = 1, 
+	Activity = 1,
 	Entity = 2
 };
 
@@ -17,12 +17,14 @@ enum vertexType {
 class Vertex {
 
 public:
+	Vertex() {}
+
 	Vertex(vertexType type,
 		const std::string& name,
 		unsigned long start,
-		unsigned long end) 
+		unsigned long end)
 		: type_(type), name_(name), start_(start), end_(end) {	}
-	
+
 	const vertexType GetType() const {
 		return type_;
 	}
@@ -45,8 +47,6 @@ public:
 
 private:
 	friend class odb::access;
-
-	Vertex() {}
 
 #pragma db id auto
 	unsigned long id_;
