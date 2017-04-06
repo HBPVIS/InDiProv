@@ -9,7 +9,6 @@
 #define DATABASE_HXX
 
 #include <string>
-#include <memory>   // std::auto_ptr
 #include <cstdlib>  // std::exit
 #include <iostream>
 
@@ -32,7 +31,7 @@
 #  error unknown database; did you forget to define the DATABASE_* macros?
 #endif
 
-inline std::auto_ptr<odb::database>
+inline std::shared_ptr<odb::database>
 create_database (int& argc, char* argv[])
 {
   using namespace std;
@@ -59,9 +58,9 @@ create_database (int& argc, char* argv[])
   }
 
 #if defined(DATABASE_MYSQL)
-  auto_ptr<database> db (new odb::mysql::database (argc, argv));
+  shared_ptr<database> db (new odb::mysql::database (argc, argv));
 #elif defined(DATABASE_SQLITE)
-  auto_ptr<database> db (
+  shared_ptr<database> db (
     new odb::sqlite::database (
       argc, argv, false, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE));
 
@@ -81,11 +80,11 @@ create_database (int& argc, char* argv[])
     c->execute ("PRAGMA foreign_keys=ON");
   }
 #elif defined(DATABASE_PGSQL)
-  auto_ptr<database> db (new odb::pgsql::database (argc, argv));
+  shared_ptr<database> db (new odb::pgsql::database (argc, argv));
 #elif defined(DATABASE_ORACLE)
-  auto_ptr<database> db (new odb::oracle::database (argc, argv));
+  shared_ptr<database> db (new odb::oracle::database (argc, argv));
 #elif defined(DATABASE_MSSQL)
-  auto_ptr<database> db (new odb::mssql::database (argc, argv));
+  shared_ptr<database> db (new odb::mssql::database (argc, argv));
 #endif
 
   return db;

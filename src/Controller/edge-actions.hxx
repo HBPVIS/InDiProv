@@ -1,7 +1,6 @@
 #ifndef EDGE_ACTIONS_HXX
 #define EDGE_ACTIONS_HXX
 
-#include <memory>   // std::auto_ptr
 #include <iostream>
 
 #include <odb/database.hxx>
@@ -17,7 +16,7 @@ using std::tr1::shared_ptr;
 
 using namespace odb::core;
 
-int createEdge(std::auto_ptr<database>& db, edgeType type, long firstId, long secondId) {
+int createEdge(std::shared_ptr<database>& db, edgeType type, long firstId, long secondId) {
 	transaction t(db->begin());
 
 	shared_ptr<Vertex> first(
@@ -42,7 +41,7 @@ int createEdge(std::auto_ptr<database>& db, edgeType type, long firstId, long se
 	return id;
 }
 
-int createEdge(std::auto_ptr<database>& db, edgeType type, std::string firstVertName, std::string secondVertName) {
+int createEdge(std::shared_ptr<database>& db, edgeType type, std::string firstVertName, std::string secondVertName) {
 	transaction t(db->begin());
 
 	shared_ptr<Vertex> first(
@@ -67,7 +66,7 @@ int createEdge(std::auto_ptr<database>& db, edgeType type, std::string firstVert
 	return id;
 }
 
-bool deleteEdge(std::auto_ptr<database>& db, long id) {
+bool deleteEdge(std::shared_ptr<database>& db, long id) {
 	bool deleted = false;
 	transaction t(db->begin());
 	std::auto_ptr<Edge> edge(

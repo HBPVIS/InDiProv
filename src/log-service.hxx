@@ -3,7 +3,6 @@
 #include "endpoint.h"
 #include "rapidjson/rapidjson.h"
 
-#include <memory>   // std::auto_ptr
 #include <iostream>
 #include <thread>
 
@@ -47,7 +46,7 @@ public:
   }
 
 private:
-  std::auto_ptr<database> db;
+  std::shared_ptr<database> db;
   std::shared_ptr<Net::Http::Endpoint> httpEndpoint;
   Rest::Description desc;
   Rest::Router router;
