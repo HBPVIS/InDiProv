@@ -28,8 +28,7 @@ public:
 		db = create_database(argc, argv);
 
     auto opts = Net::Http::Endpoint::options()
-      .threads(thr)
-      .flags(Net::Tcp::Options::InstallSignalHandler);
+      .threads(thr);
     httpEndpoint->init(opts);
     createDescription();
   }
