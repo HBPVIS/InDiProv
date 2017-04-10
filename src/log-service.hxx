@@ -1,7 +1,7 @@
 #include "http.h"
 #include "description.h"
 #include "endpoint.h"
-#include "rapidjson/rapidjson.h"
+#include "serializer/rapidjson.h"
 
 #include <iostream>
 #include <thread>
