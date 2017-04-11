@@ -14,6 +14,8 @@
 #include "Controller/vertex-actions.hxx"
 #include "Controller/edge-actions.hxx"
 
+#include "config.hxx"
+
 using namespace odb::core;
 using namespace Net;
 
@@ -36,6 +38,14 @@ public:
   void start() {
     router.initFromDescription(desc);
 
+    Rest::Swagger swagger(desc);
+    swagger
+        .uiPath("/doc")
+        .uiDirectory(Config::swaggerDir)
+        .apiPath("/api.json")
+        .serializer(&Rest::Serializer::rapidJson)
+        .install(router);
+
     httpEndpoint->setHandler(router.handler());
     httpEndpoint->serve();
   }
@@ -56,7 +66,7 @@ private:
       .license("Apache", "http://www.apache.org/licenses/LICENSE-2.0");
 
     auto backendErrorResponse =
-    desc.response(Http::Code::Internal_Server_Error, "An error occured with the backend");
+      desc.response(Http::Code::Internal_Server_Error, "An error occured with the backend");
 
     desc
       .route(desc.get("/ready"))
