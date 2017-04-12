@@ -7,8 +7,6 @@
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>
 
-#include "database.hxx" // create_database
-
 #include "../Model/vertex.hxx"
 #include "../Model/vertex-odb.hxx"
 

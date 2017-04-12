@@ -15,6 +15,7 @@ set ( DB_USER "root" CACHE STRING "DB user name")
 set ( DB_PASS "password" CACHE STRING "DB password")
 
 set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server includes" )
+set ( PISTACHE_LIBRARY "" CACHE FILEPATH "Pistache libnet_static.a library" )
 
 find_package(RapidJSON)
 find_package( Threads REQUIRED )
@@ -67,6 +68,6 @@ target_link_libraries( server ${CMAKE_THREAD_LIBS_INIT} )
 target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
 target_link_libraries( server ${DB_CONNECTOR_LIBRARY} )
-target_link_libraries( server net_static)
+target_link_libraries( server ${PISTACHE_LIBRARY} )
 
 add_executable( client "src/client.cxx")

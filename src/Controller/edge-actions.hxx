@@ -9,8 +9,6 @@
 #include <odb/tr1/memory.hxx>
 using std::tr1::shared_ptr;
 
-#include "database.hxx" // create_database
-
 #include "../Model/edge.hxx"
 #include "../Model/edge-odb.hxx"
 
