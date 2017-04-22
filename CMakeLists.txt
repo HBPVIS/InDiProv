@@ -69,5 +69,3 @@ target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
 target_link_libraries( server ${DB_CONNECTOR_LIBRARY} )
 target_link_libraries( server ${PISTACHE_LIBRARY} )
-
-add_executable( client "src/client.cxx")
