@@ -9,15 +9,12 @@ set ( LIBODBDB_INCLUDE_PATH "" CACHE PATH "The odb db implementation include pat
 set ( LIBODB_LIBRARY "" CACHE FILEPATH "The odb library to link against" )
 set ( LIBODBDB_LIBRARY "" CACHE FILEPATH "The odb db library to link against" )
 
-set ( DB_CONNECTOR_INCLUDE_PATH "" CACHE PATH "The db connector include path" )
-set ( DB_CONNECTOR_LIBRARY "" CACHE FILEPATH "The db connector library to link against" )
 set ( DB_USER "root" CACHE STRING "DB user name")
 set ( DB_PASS "password" CACHE STRING "DB password")
 
-set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server includes" )
-set ( PISTACHE_LIBRARY "" CACHE FILEPATH "Pistache libnet_static.a library" )
+set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server include path" )
+set ( PISTACHE_LIBRARY "" CACHE FILEPATH "Pistache libnet library" )
 
-find_package(RapidJSON)
 find_package( Threads REQUIRED )
 
 set ( MODEL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/Model CACHE INTERNAL "model directory")
@@ -35,17 +32,20 @@ endforeach()
 message("odb compilation finished.")
 message("")
 
+message("starting mysql setup...")
+message("  creating database...")
 exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS} -e" "\"DROP DATABASE provenance\"" OUTPUT_VARIABLE output)
 exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS}" "-e \"CREATE DATABASE provenance\"" OUTPUT_VARIABLE output)
 
 message("  creating elementary tables...")
-message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${MODEL_DIR}/vertex.sql")
 execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/vertex.sql" OUTPUT_VARIABLE output)
 
 message("  creating cross tables...")
-message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${query}")
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${MODEL_DIR}/edge.sql")
 execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/edge.sql" OUTPUT_VARIABLE output)
 message("mysql db setup complete.")
+message("")
 
 file(GLOB source
   "src/log-service.hxx"
@@ -58,14 +58,11 @@ file(GLOB source
 
 include_directories (${LIBODB_INCLUDE_PATH})
 include_directories (${LIBODBDB_INCLUDE_PATH})
-include_directories (${DB_CONNECTOR_INCLUDE_PATH})
 include_directories (${MODEL_DIR})
 include_directories (${PISTACHE_INCLUDE_PATH})
-include_directories (${RapidJSON_INCLUDE_DIR})
 
 add_executable( server "src/server.cxx" ${source} )
 target_link_libraries( server ${CMAKE_THREAD_LIBS_INIT} )
 target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
-target_link_libraries( server ${DB_CONNECTOR_LIBRARY} )
 target_link_libraries( server ${PISTACHE_LIBRARY} )
