@@ -11,6 +11,7 @@ set ( LIBODBDB_LIBRARY "" CACHE FILEPATH "The odb db library to link against" )
 
 set ( DB_USER "root" CACHE STRING "DB user name")
 set ( DB_PASS "password" CACHE STRING "DB password")
+set ( DB_SCHEMA "provenance" CACHE STRING "DB schema name")
 
 set ( PISTACHE_INCLUDE_PATH "" CACHE PATH "Pistache REST Server include path" )
 set ( PISTACHE_LIBRARY "" CACHE FILEPATH "Pistache libnet library" )
@@ -40,16 +41,16 @@ message("")
 
 message("Starting mysql setup...")
 message("  Creating database...")
-exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS} -e" "\"DROP DATABASE provenance\"" OUTPUT_VARIABLE output)
-exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS}" "-e \"CREATE DATABASE provenance\"" OUTPUT_VARIABLE output)
+exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS} -e" "\"DROP DATABASE ${DB_SCHEMA}\"" OUTPUT_VARIABLE output)
+exec_program("mysql" ARGS "--user=${DB_USER}" "--password=${DB_PASS}" "-e \"CREATE DATABASE ${DB_SCHEMA}\"" OUTPUT_VARIABLE output)
 
 message("  Creating elementary tables...")
-message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${MODEL_DIR}/vertex.sql")
-execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/vertex.sql" OUTPUT_VARIABLE output)
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=${DB_SCHEMA} < ${MODEL_DIR}/vertex.sql")
+execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=${DB_SCHEMA}" INPUT_FILE "${MODEL_DIR}/vertex.sql" OUTPUT_VARIABLE output)
 
 message("  Creating cross tables...")
-message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=provenance < ${MODEL_DIR}/edge.sql")
-execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=provenance" INPUT_FILE "${MODEL_DIR}/edge.sql" OUTPUT_VARIABLE output)
+message("    mysql --user=${DB_USER} --password=${DB_PASS} --database=${DB_SCHEMA} < ${MODEL_DIR}/edge.sql")
+execute_process(COMMAND "mysql" "--user=${DB_USER}" "--password=${DB_PASS}" "--database=${DB_SCHEMA}" INPUT_FILE "${MODEL_DIR}/edge.sql" OUTPUT_VARIABLE output)
 message("mysql db setup complete.")
 message("")
 
@@ -72,3 +73,6 @@ target_link_libraries( server ${CMAKE_THREAD_LIBS_INIT} )
 target_link_libraries( server ${LIBODB_LIBRARY} )
 target_link_libraries( server ${LIBODBDB_LIBRARY} )
 target_link_libraries( server ${PISTACHE_LIBRARY} )
+
+file(WRITE ${CMAKE_BINARY_DIR}/start_default_server "#!/bin/sh\n./server --user ${DB_USER} --password ${DB_PASS} --database ${DB_SCHEMA}")
+exec_program("chmod 770 start_default_server")
