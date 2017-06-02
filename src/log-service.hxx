@@ -1,7 +1,9 @@
-#include "http.h"
-#include "description.h"
 #include "endpoint.h"
 #include "serializer/rapidjson.h"
+
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 #include <iostream>
 #include <thread>
@@ -71,7 +73,12 @@ private:
     desc
       .route(desc.get("/ready"))
       .bind(&LogService::handleReady, this)
-      .response(Http::Code::Ok, "Response to the /ready call");
+      .response(Http::Code::Ok, "'Absolutely.' if server is ready");
+
+    desc
+      .route(desc.post("/prettify"))
+      .bind(&LogService::prettifyJSON, this)
+      .response(Http::Code::Ok, "Prettified 'application/json' data.");
 
     auto agentPath = desc.path("/agent");
     auto activityPath = desc.path("/activity");
@@ -106,7 +113,23 @@ private:
   }
 
   void handleReady(const Rest::Request&, Http::ResponseWriter response) {
-    response.send(Http::Code::Ok, "Absolutely\n");
+    response.send(Http::Code::Ok, "Absolutely.\n");
+  }
+
+  void prettifyJSON(const Rest::Request& request, Http::ResponseWriter response) {
+    auto headers = request.headers();
+    auto ct = request.headers().get<Http::Header::ContentType>();
+    auto mime = ct->mime();
+    if(mime == MIME(Application, Json)) {
+      rapidjson::Document d;
+      const char* json = request.body().c_str();
+      d.Parse(json);
+      rapidjson::StringBuffer buffer;
+      rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
+      d.Accept(writer);
+      response.send(Http::Code::Ok, buffer.GetString());
+    }
+    response.send(Http::Code::Ok, "MIME type is not application/json.\n");
   }
 
   void createAgent(const Rest::Request& request, Http::ResponseWriter response) {
