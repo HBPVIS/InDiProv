@@ -1,3 +1,6 @@
+// This file is taken from the "Hello World" example supplied by Code Synthesis
+// http://www.codesynthesis.com/products/odb/examples.xhtml
+
 // file      : hello/database.hxx
 // copyright : not copyrighted - public domain
 
