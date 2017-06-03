@@ -71,13 +71,15 @@ private:
       desc.response(Http::Code::Internal_Server_Error, "An error occured with the backend");
 
     desc
-      .route(desc.get("/ready"))
+      .route(desc.get("/ready"), "Query if server is ready.")
       .bind(&LogService::handleReady, this)
       .response(Http::Code::Ok, "'Absolutely.' if server is ready");
 
     desc
-      .route(desc.post("/prettify"))
+      .route(desc.post("/prettify"), "Prettify a JSON payload.")
       .bind(&LogService::prettifyJSON, this)
+      .consumes(MIME(Application, Json))
+      .produces(MIME(Application, Json))
       .response(Http::Code::Ok, "Prettified 'application/json' data.");
 
     auto agentPath = desc.path("/agent");
