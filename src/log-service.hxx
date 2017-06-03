@@ -82,32 +82,19 @@ private:
       .produces(MIME(Application, Json))
       .response(Http::Code::Ok, "Prettified 'application/json' data.");
 
-    auto agentPath = desc.path("/agent");
-    auto activityPath = desc.path("/activity");
-    auto entityPath = desc.path("/entity");
-
-    agentPath
-      .route(desc.post("/:name"), "Create an Agent")
-      .bind(&LogService::createAgent, this)
-      .parameter<Rest::Type::String>("name", "The name of the agent to create");
+    desc
+      .route(desc.post("/log"), "Log the PROV-O objects in payload JSON.")
+      .bind(&LogService::logPayloadJSON, this)
+      .consumes(MIME(Application, Json))
+      .response(Http::Code::Ok, "Logging request confirmation");
 
     desc
       .route(desc.get("/agents"))
       .bind(&LogService::getAgents, this);
 
-    activityPath
-      .route(desc.post("/:name/:from/:to"), "Create an Activity")
-      .bind(&LogService::createActivity, this)
-      .parameter<Rest::Type::String>("name", "The name of the activity to create");
-
     desc
       .route(desc.get("/activities"))
       .bind(&LogService::getActivities, this);
-
-    entityPath
-      .route(desc.post("/:name"), "Create an Entity")
-      .bind(&LogService::createEntity, this)
-      .parameter<Rest::Type::String>("name", "The name of the entity to create");
 
     desc
       .route(desc.get("/entities"))
@@ -119,41 +106,45 @@ private:
   }
 
   void prettifyJSON(const Rest::Request& request, Http::ResponseWriter response) {
-    auto headers = request.headers();
     auto ct = request.headers().get<Http::Header::ContentType>();
     auto mime = ct->mime();
     if(mime == MIME(Application, Json)) {
-      rapidjson::Document d;
-      const char* json = request.body().c_str();
-      d.Parse(json);
+      rapidjson::Document doc;
+      doc.Parse(request.body().c_str());
       rapidjson::StringBuffer buffer;
       rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
-      d.Accept(writer);
+      doc.Accept(writer);
       response.send(Http::Code::Ok, buffer.GetString());
     }
     response.send(Http::Code::Ok, "MIME type is not application/json.\n");
   }
 
-  void createAgent(const Rest::Request& request, Http::ResponseWriter response) {
-    std::string name = request.param(":name").as<std::string>();
-    auto t = time(nullptr);
-    createVertex(db, Agent, name, t, t);
-    response.send(Http::Code::Ok, name + " created.\n");
-  }
-
-  void createActivity(const Rest::Request& request, Http::ResponseWriter response) {
-    std::string name = request.param(":name").as<std::string>();
-    auto from = request.param(":from").as<uint>();
-    auto to = request.param(":to").as<uint>();
-    createVertex(db, Activity, name, from, to);
-    response.send(Http::Code::Ok, name + " created.\n");
-  }
-
-  void createEntity(const Rest::Request& request, Http::ResponseWriter response) {
-    std::string name = request.param(":name").as<std::string>();
-    auto t = time(nullptr);
-    createVertex(db, Entity, name, t, t);
-    response.send(Http::Code::Ok, name + " created.\n");
+  void logPayloadJSON(const Rest::Request& request, Http::ResponseWriter response) {
+    auto ct = request.headers().get<Http::Header::ContentType>();
+    auto mime = ct->mime();
+    std::string testResult;
+    if(mime == MIME(Application, Json)) {
+      rapidjson::Document doc;
+      doc.Parse(request.body().c_str());
+      std::string client = doc["client"].GetString();
+      std::string session = doc["session"].GetString();
+      testResult = "client: " + client + "\n";
+      testResult += "session: " + session + "\n";
+      testResult += "vertices\n";
+      const rapidjson::Value& vertices = doc["vertices"];
+      for (auto& vertex : vertices.GetArray()) {
+        testResult = testResult + vertex["type"].GetString() + " "
+                                + vertex["name"].GetString() + "\n";
+      }
+      testResult += "edges\n";
+      const rapidjson::Value& edges = doc["edges"];
+      for (auto& edge : edges.GetArray()) {
+        testResult = testResult + edge["first"].GetString() + " "
+                                + edge["type"].GetString() + " "
+                                + edge["second"].GetString() + "\n";
+      }
+    }
+    response.send(Http::Code::Ok, testResult);
   }
 
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
