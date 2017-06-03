@@ -13,6 +13,30 @@ enum vertexType {
 	Entity = 2
 };
 
+const int NUM_VERTEX_TYPES = 3;
+
+static std::string vertexTypeToString(vertexType vertex) {
+	switch (vertex) {
+	case Agent:
+		return "Agent";
+	case Activity:
+		return "Activity";
+	case Entity:
+		return "Entity";
+	default:
+		return "unknown";
+	}
+}
+
+static vertexType stringToVertexType(std::string vertex) {
+	for(vertexType type = vertexType(0); type < NUM_VERTEX_TYPES; type = vertexType(type+1)) {
+		if(vertex == vertexTypeToString(type)) {
+			return type;
+		}
+	}
+	throw ("vertexType " + vertex + " not implemented.");
+}
+
 #pragma db object
 class Vertex {
 

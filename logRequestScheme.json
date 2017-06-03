@@ -1,0 +1,19 @@
+{
+  "client": string,
+  "session": string,
+  "vertices": [
+    {
+      "type": string,
+      "name": string,
+      "start": ulong,
+      "end": ulong
+    }
+  ],
+  "edges": [
+    {
+      "type": string,
+      "first": string,
+      "second": string
+    }
+  ]
+}

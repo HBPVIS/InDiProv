@@ -16,6 +16,7 @@ enum edgeType {
 	wasAssociatedWith = 5,
 	actedOnBehalfOf = 6
 };
+const int NUM_EDGE_TYPES = 7;
 
 static vertexType getVertexType(edgeType edge, bool firstVertex) {
 	switch (edge) {
@@ -73,6 +74,15 @@ static std::string edgeTypeToString(edgeType edge) {
 	}
 }
 
+static edgeType stringToEdgeType(std::string edge) {
+	for(edgeType type = edgeType(0); type < NUM_EDGE_TYPES; type = edgeType(type+1)) {
+		if(edge == edgeTypeToString(type)) {
+			return type;
+		}
+	}
+	throw ("edgeType " + edge + " not implemented.");
+}
+
 #pragma db object
 class Edge {
 
@@ -94,7 +104,7 @@ public:
 	const long getId() {
 		return id_;
 	}
-	
+
 	shared_ptr<Vertex> getFirst() {
 		return first_;
 	}
@@ -118,7 +128,7 @@ private:
 	shared_ptr<Vertex> second_;
 
 	edgeType type_;
-	
+
 };
 
 #endif // EDGE_HXX

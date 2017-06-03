@@ -1,0 +1,26 @@
+{
+  "client":"cyrus logging",
+  "session":"evening hack",
+  "vertices":[
+    {
+      "type":"Agent",
+      "name":"cyremur",
+      "start":0,
+      "end":1
+    },
+    {
+      "type":"Entity",
+      "name":"laptop",
+      "start":42,
+      "end":1337
+    }
+  ],
+  "edges":
+  [
+    {
+      "type":"wasAttributedTo",
+      "first":"laptop",
+      "second":"cyremur"
+    }
+  ]
+}
