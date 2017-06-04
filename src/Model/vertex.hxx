@@ -44,13 +44,18 @@ public:
 	Vertex() {}
 
 	Vertex(vertexType type,
+		const std::string& client,
 		const std::string& name,
 		unsigned long start,
 		unsigned long end)
-		: type_(type), name_(name), start_(start), end_(end) {	}
+		: type_(type), client_(client), name_(name), start_(start), end_(end) {	}
 
 	const vertexType GetType() const {
 		return type_;
+	}
+
+	const std::string& GetClient() const {
+		return client_;
 	}
 
 	const std::string& GetName() const {
@@ -72,14 +77,18 @@ public:
 private:
 	friend class odb::access;
 
-#pragma db id auto
+	#pragma db id auto
 	unsigned long id_;
 
 	vertexType type_;
+	#pragma db type("VARCHAR(128)")
+	std::string client_;
+	#pragma db type("VARCHAR(128)")
 	std::string name_;
 	unsigned long start_;
 	unsigned long end_;
 
+	#pragma db index("client_name") type("UNIQUE") members(client_, name_)
 };
 
 #endif // VERTEX_HXX

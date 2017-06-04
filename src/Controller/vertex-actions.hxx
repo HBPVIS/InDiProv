@@ -12,8 +12,8 @@
 
 using namespace odb::core;
 
-long createVertex(std::shared_ptr<database>& db, vertexType type, std::string name, unsigned long start, unsigned long end) {
-	Vertex vertex(type, name, start, end);
+long createVertex(std::shared_ptr<database>& db, vertexType type, std::string client, std::string name, unsigned long start, unsigned long end) {
+	Vertex vertex(type, client, name, start, end);
 	transaction t(db->begin());
 	long id = db->persist(vertex);
 	t.commit();

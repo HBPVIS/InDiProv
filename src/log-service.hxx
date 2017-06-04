@@ -140,7 +140,7 @@ private:
           response.send(Http::Code::Not_Implemented, e);
           return;
         }
-        createVertex(db, type, vertex["name"].GetString(), vertex["start"].GetUint64(), vertex["end"].GetUint64());
+        createVertex(db, type, client, vertex["name"].GetString(), vertex["start"].GetUint64(), vertex["end"].GetUint64());
         testResult = testResult + vertex["type"].GetString() + " "
                                 + vertex["name"].GetString() + "\n";
       }

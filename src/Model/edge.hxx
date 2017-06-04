@@ -118,13 +118,13 @@ private:
 
 	Edge() {}
 
-#pragma db id auto
+	#pragma db id auto
 	unsigned long id_;
 
-#pragma db not_null
+	#pragma db not_null
 	shared_ptr<Vertex> first_;
 
-#pragma db not_null
+	#pragma db not_null
 	shared_ptr<Vertex> second_;
 
 	edgeType type_;
