@@ -130,35 +130,41 @@ private:
       std::string session = doc["session"].GetString();
       testResult = "client: " + client + "\n";
       testResult += "session: " + session + "\n";
-      testResult += "vertices\n";
-      const rapidjson::Value& vertices = doc["vertices"];
-      for (auto& vertex : vertices.GetArray()) {
-        vertexType type;
-        try {
-          type = stringToVertexType(vertex["type"].GetString());
-        } catch (std::string e) {
-          response.send(Http::Code::Not_Implemented, e);
-          return;
+
+      if(doc.HasMember("vertices")) {
+        testResult += "vertices\n";
+        const rapidjson::Value& vertices = doc["vertices"];
+        for (auto& vertex : vertices.GetArray()) {
+          vertexType type;
+          try {
+            type = stringToVertexType(vertex["type"].GetString());
+          } catch (std::string e) {
+            response.send(Http::Code::Not_Implemented, e);
+            return;
+          }
+          createVertex(db, type, client, vertex["name"].GetString(), vertex["start"].GetUint64(), vertex["end"].GetUint64());
+          testResult = testResult + vertex["type"].GetString() + " "
+                                  + vertex["name"].GetString() + "\n";
         }
-        createVertex(db, type, client, vertex["name"].GetString(), vertex["start"].GetUint64(), vertex["end"].GetUint64());
-        testResult = testResult + vertex["type"].GetString() + " "
-                                + vertex["name"].GetString() + "\n";
       }
-      testResult += "edges\n";
-      const rapidjson::Value& edges = doc["edges"];
-      for (auto& edge : edges.GetArray()) {
-        edgeType type;
-        try {
-          type = stringToEdgeType(edge["type"].GetString());
-        } catch (std::string e) {
-          response.send(Http::Code::Not_Implemented, e);
-          return;
+
+      if(doc.HasMember("edges")) {
+        testResult += "edges\n";
+        const rapidjson::Value& edges = doc["edges"];
+        for (auto& edge : edges.GetArray()) {
+          edgeType type;
+          try {
+            type = stringToEdgeType(edge["type"].GetString());
+          } catch (std::string e) {
+            response.send(Http::Code::Not_Implemented, e);
+            return;
+          }
+          createEdge(db, type, edge["first"].GetString(), edge["second"].GetString());
+          testResult = testResult + edge["first"].GetString() + " "
+                                  + edge["type"].GetString() + " "
+                                  + edge["second"].GetString() + "\n";
         }
-        createEdge(db, type, edge["first"].GetString(), edge["second"].GetString());
-        testResult = testResult + edge["first"].GetString() + " "
-                                + edge["type"].GetString() + " "
-                                + edge["second"].GetString() + "\n";
-      }
+      }      
     }
     response.send(Http::Code::Ok, testResult);
   }
