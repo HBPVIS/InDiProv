@@ -86,7 +86,13 @@ private:
       .route(desc.post("/log"), "Log the PROV-O objects in payload JSON.")
       .bind(&LogService::logPayloadJSON, this)
       .consumes(MIME(Application, Json))
-      .response(Http::Code::Ok, "Logging request confirmation");
+      .response(Http::Code::Ok, "Logging request confirmation.");
+
+    desc
+      .route(desc.get("/query"), "Query the Log Database.")
+      .bind(&LogService::queryLog, this)
+      .produces(MIME(Application, Json))
+      .response(Http::Code::Ok, "JSON of the requested objects.");
 
     desc
       .route(desc.get("/agents"))
@@ -167,6 +173,14 @@ private:
       }      
     }
     response.send(Http::Code::Ok, testResult);
+  }
+
+  void queryLog(const Rest::Request& request, Http::ResponseWriter response) {
+    auto query = request.query();
+    if(query.has("type")) {
+      std::cerr << "type: " << query.get("type").get() << std::endl;
+    }
+    response.send(Http::Code::Ok, "");
   }
 
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
