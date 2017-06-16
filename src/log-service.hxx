@@ -1,5 +1,8 @@
+#pragma once
+
 #include "endpoint.h"
 #include "serializer/rapidjson.h"
+#include "html-headers.hxx"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -30,6 +33,9 @@ public:
 
   void init(size_t thr, int argc, char* argv[]) {
 		db = create_database(argc, argv);
+
+    Http::Header::Registry
+      ::registerHeader<Http::Header::AccessControlAllowOrigin>();
 
     auto opts = Net::Http::Endpoint::options()
       .threads(thr);
@@ -108,6 +114,9 @@ private:
   }
 
   void handleReady(const Rest::Request&, Http::ResponseWriter response) {
+    response.headers()
+      .add<Http::Header::Server>("InDiProv2")
+      .add<Http::Header::AccessControlAllowOrigin>("*");
     response.send(Http::Code::Ok, "Absolutely.\n");
   }
 
@@ -170,17 +179,22 @@ private:
                                   + edge["type"].GetString() + " "
                                   + edge["second"].GetString() + "\n";
         }
-      }      
+      }
     }
     response.send(Http::Code::Ok, testResult);
   }
 
   void queryLog(const Rest::Request& request, Http::ResponseWriter response) {
     auto query = request.query();
+    std::string type = "";
+    std::string id = "";
     if(query.has("type")) {
-      std::cerr << "type: " << query.get("type").get() << std::endl;
+      type = query.get("type").get();
     }
-    response.send(Http::Code::Ok, "");
+    if(query.has("id")) {
+      id = query.get("id").get();
+    }
+    response.send(Http::Code::Ok, "{" + type + "," + id + "}");
   }
 
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
