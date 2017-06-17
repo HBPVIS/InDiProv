@@ -114,13 +114,12 @@ private:
   }
 
   void handleReady(const Rest::Request&, Http::ResponseWriter response) {
-    response.headers()
-      .add<Http::Header::Server>("InDiProv2")
-      .add<Http::Header::AccessControlAllowOrigin>("*");
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     response.send(Http::Code::Ok, "Absolutely.\n");
   }
 
   void prettifyJSON(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto ct = request.headers().get<Http::Header::ContentType>();
     auto mime = ct->mime();
     if(mime == MIME(Application, Json)) {
@@ -135,6 +134,7 @@ private:
   }
 
   void logPayloadJSON(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto ct = request.headers().get<Http::Header::ContentType>();
     auto mime = ct->mime();
     std::string testResult;
@@ -185,6 +185,7 @@ private:
   }
 
   void queryLog(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto query = request.query();
     std::string type = "";
     std::string id = "";
@@ -198,6 +199,7 @@ private:
   }
 
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Agent);
     std::string res = "";
     for(Vertex vert : verts) {
@@ -207,6 +209,7 @@ private:
   }
 
   void getActivities(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Activity);
     std::string res = "";
     for(Vertex vert : verts) {
@@ -216,6 +219,7 @@ private:
   }
 
   void getEntities(const Rest::Request& request, Http::ResponseWriter response) {
+    response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Entity);
     std::string res = "";
     for(Vertex vert : verts) {
