@@ -201,30 +201,87 @@ private:
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {
     response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Agent);
-    std::string res = "";
-    for(Vertex vert : verts) {
-      res = res + vert.GetName() + "\n";
+    rapidjson::StringBuffer sb;
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
+    writer.StartObject();
+    {
+      writeVertexArray(writer, verts);
     }
-    response.send(Http::Code::Ok, res);
+    writer.EndObject();
+    response.send(Http::Code::Ok, sb.GetString());
   }
 
   void getActivities(const Rest::Request& request, Http::ResponseWriter response) {
     response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Activity);
-    std::string res = "";
-    for(Vertex vert : verts) {
-      res = res + vert.GetName() + "\n";
+    rapidjson::StringBuffer sb;
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
+    writer.StartObject();
+    {
+      writeVertexArray(writer, verts);
     }
-    response.send(Http::Code::Ok, res);
+    writer.EndObject();
+    response.send(Http::Code::Ok, sb.GetString());
   }
 
   void getEntities(const Rest::Request& request, Http::ResponseWriter response) {
     response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
     auto verts = getVertex(db, vertexType::Entity);
-    std::string res = "";
-    for(Vertex vert : verts) {
-      res = res + vert.GetName() + "\n";
+    rapidjson::StringBuffer sb;
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
+    writer.StartObject();
+    {
+      writeVertexArray(writer, verts);
     }
-    response.send(Http::Code::Ok, res);
+    writer.EndObject();
+    response.send(Http::Code::Ok, sb.GetString());
+  }
+
+  template<typename Writer>
+  void writeVertexArray(Writer& writer, std::vector<Vertex> verts) {
+    writer.String("vertices");
+    writer.StartArray();
+    for(Vertex vert : verts) {
+      writer.StartObject();
+      {
+        writer.String("client");
+        writer.String(vert.GetClient().c_str());
+        writer.String("session");
+        writer.String(vert.GetSession().c_str());
+        writer.String("type");
+        writer.String(vert.GetTypeString().c_str());
+        writer.String("name");
+        writer.String(vert.GetName().c_str());
+        writer.String("start");
+        writer.Uint64(vert.GetStart());
+        writer.String("end");
+        writer.Uint64(vert.GetEnd());
+        writer.String("id");
+        writer.Uint64(vert.GetId());
+      }
+      writer.EndObject();
+    }
+    writer.EndArray();
+  }
+
+  template<typename Writer>
+  void writeEdgeArray(Writer& writer, std::vector<Vertex> edges) {
+    writer.String("vertices");
+    writer.StartArray();
+    for(Edge edge : edges) {
+      writer.StartObject();
+      {
+        writer.String("first");
+        writer.Uint64(edge.GetFirst());
+        writer.String("second");
+        writer.Uint64(edge.GetSecond());
+        writer.String("type");
+        writer.String(edge.GetTypeString().c_str());
+        writer.String("id");
+        writer.Uint64(edge.GetId());
+      }
+      writer.EndObject();
+    }
+    writer.EndArray();
   }
 };

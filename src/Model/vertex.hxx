@@ -52,31 +52,35 @@ public:
 		unsigned long end)
 		: client_(client), session_(session), type_(type), name_(name), start_(start), end_(end) {	}
 
-	const std::string& GetClient() const {
+	const std::string& GetClient() {
 		return client_;
 	}
 
-	const std::string& GetSession() const {
+	const std::string& GetSession() {
 		return session_;
 	}
 
-	const vertexType GetType() const {
+	const vertexType GetType() {
 		return type_;
 	}
 
-	const std::string& GetName() const {
+	const std::string GetTypeString() {
+		return vertexTypeToString(type_);
+	}
+
+	const std::string& GetName() {
 		return name_;
 	}
 
-	unsigned long GetStart() const {
+	unsigned long GetStart() {
 		return start_;
 	}
 
-	unsigned long GetEnd() const {
+	unsigned long GetEnd() {
 		return end_;
 	}
 
-	unsigned GetId() const {
+	unsigned GetId() {
 		return id_;
 	}
 

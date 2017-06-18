@@ -93,23 +93,23 @@ public:
 		second_ = second;
 	}
 
-	const edgeType getType() {
+	const edgeType GetType() {
 		return type_;
 	}
 
-	const std::string getTypeString() {
+	const std::string GetTypeString() {
 		return edgeTypeToString(type_);
 	}
 
-	const long getId() {
+	const long GetId() {
 		return id_;
 	}
 
-	shared_ptr<Vertex> getFirst() {
+	shared_ptr<Vertex> GetFirst() {
 		return first_;
 	}
 
-	shared_ptr<Vertex> getSecond() {
+	shared_ptr<Vertex> GetSecond() {
 		return second_;
 	}
 
