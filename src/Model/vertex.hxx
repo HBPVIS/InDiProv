@@ -43,19 +43,25 @@ class Vertex {
 public:
 	Vertex() {}
 
-	Vertex(vertexType type,
+	Vertex(
 		const std::string& client,
+		const std::string& session,
+		vertexType type,
 		const std::string& name,
 		unsigned long start,
 		unsigned long end)
-		: type_(type), client_(client), name_(name), start_(start), end_(end) {	}
-
-	const vertexType GetType() const {
-		return type_;
-	}
+		: client_(client), session_(session), type_(type), name_(name), start_(start), end_(end) {	}
 
 	const std::string& GetClient() const {
 		return client_;
+	}
+
+	const std::string& GetSession() const {
+		return session_;
+	}
+
+	const vertexType GetType() const {
+		return type_;
 	}
 
 	const std::string& GetName() const {
@@ -80,9 +86,11 @@ private:
 	#pragma db id auto
 	unsigned long id_;
 
-	vertexType type_;
 	#pragma db type("VARCHAR(128)")
 	std::string client_;
+	#pragma db type("VARCHAR(128)")
+	std::string session_;
+	vertexType type_;
 	#pragma db type("VARCHAR(128)")
 	std::string name_;
 	unsigned long start_;
