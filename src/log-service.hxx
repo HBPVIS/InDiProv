@@ -138,7 +138,7 @@ private:
     auto ct = request.headers().get<Http::Header::ContentType>();
     auto mime = ct->mime();
     std::string testResult;
-    if(mime == MIME(Application, Json)) {
+    //if(mime == MIME(Application, Json)) {
       rapidjson::Document doc;
       doc.Parse(request.body().c_str());
       std::string client = doc["client"].GetString();
@@ -180,7 +180,7 @@ private:
                                   + edge["second"].GetString() + "\n";
         }
       }
-    }
+    //}
     response.send(Http::Code::Ok, testResult);
   }
 
