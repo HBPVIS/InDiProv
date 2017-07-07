@@ -229,12 +229,27 @@ private:
       std::cerr << "neighbors: " << neighbors << std::endl;
     }
     
-    auto verts = getVertex(db, client, session, type, name, from, to);
+    std::vector<Vertex> verts;
+    std::vector<Edge> edges;
+    verts = getVertex(db, client, session, type, name, from, to);
+    if(neighbors) {
+      std::vector<unsigned long> ids;
+      for(Vertex vert : verts) {
+        ids.push_back(vert.GetId());
+      }
+      edges = getEdges(db, ids);
+      for(Edge edge : edges) {
+        ids.push_back(edge.GetFirst().get()->GetId());
+        ids.push_back(edge.GetSecond().get()->GetId());
+      }
+      verts = getVertex(db, ids);
+    }
     rapidjson::StringBuffer sb;
     rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
     writer.StartObject();
     {
       writeVertexArray(writer, verts);
+      writeEdgeArray(writer, edges);
     }
     writer.EndObject();
     response.send(Http::Code::Ok, sb.GetString());
@@ -307,16 +322,16 @@ private:
   }
 
   template<typename Writer>
-  void writeEdgeArray(Writer& writer, std::vector<Vertex> edges) {
-    writer.String("vertices");
+  void writeEdgeArray(Writer& writer, std::vector<Edge> edges) {
+    writer.String("edges");
     writer.StartArray();
     for(Edge edge : edges) {
       writer.StartObject();
       {
         writer.String("first");
-        writer.Uint64(edge.GetFirst());
+        writer.Uint64(edge.GetFirst().get()->GetId());
         writer.String("second");
-        writer.Uint64(edge.GetSecond());
+        writer.Uint64(edge.GetSecond().get()->GetId());
         writer.String("type");
         writer.String(edge.GetTypeString().c_str());
         writer.String("id");

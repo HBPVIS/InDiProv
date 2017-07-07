@@ -82,4 +82,20 @@ std::vector<Vertex> getVertex(
 	return vec;
 }
 
+std::vector<Vertex> getVertex(std::shared_ptr<database>& db, std::vector<unsigned long> ids) {
+	std::vector<Vertex> vec;
+	Vertex vert;
+	transaction t(db->begin());
+
+	result<Vertex> r (db->query<Vertex>(
+		query<Vertex>::id.in_range(ids.begin(), ids.end())
+	));
+	for (result<Vertex>::iterator i (r.begin()); i != r.end(); ++i) {
+		i.load(vert);
+		vec.push_back(vert);
+	}
+	t.commit();
+	return vec;
+}
+
 #endif // VERTEX_ACTIONS_HXX
