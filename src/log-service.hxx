@@ -186,16 +186,58 @@ private:
 
   void queryLog(const Rest::Request& request, Http::ResponseWriter response) {
     response.headers().add<Http::Header::AccessControlAllowOrigin>("*");
+    std::cerr << "Received query..." << std::endl;
     auto query = request.query();
+    std::string client = "";
+    std::string session = "";
     std::string type = "";
-    std::string id = "";
+    std::string name = "";
+    unsigned long id = 0;
+    unsigned long from = 0;
+    unsigned long to = 0;
+    bool neighbors = false;
+    if(query.has("client")) {
+      client = query.get("client").get();
+      std::cerr << "client: " << client << std::endl;
+    }
+    if(query.has("session")) {
+      session = query.get("session").get();
+      std::cerr << "session: " << session << std::endl;
+    }
     if(query.has("type")) {
       type = query.get("type").get();
+      std::cerr << "type: " << type << std::endl;
+    }
+    if(query.has("name")) {
+      name = query.get("name").get();
+      std::cerr << "name: " << name << std::endl;
     }
     if(query.has("id")) {
-      id = query.get("id").get();
+      id = std::stoul(query.get("id").get().c_str());
+      std::cerr << "id: " << id << std::endl;
     }
-    response.send(Http::Code::Ok, "{" + type + "," + id + "}");
+    if(query.has("from")) {
+      from = std::stoul(query.get("from").get().c_str());
+      std::cerr << "from: " << from << std::endl;
+    }
+    if(query.has("to")) {
+      to = std::stoul(query.get("to").get().c_str());
+      std::cerr << "to: " << to << std::endl;
+    }
+    if(query.has("neighbors")) {
+      neighbors = (query.get("neighbors").get() == "true");
+      std::cerr << "neighbors: " << neighbors << std::endl;
+    }
+    
+    auto verts = getVertex(db, client, session, type, name, from, to);
+    rapidjson::StringBuffer sb;
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
+    writer.StartObject();
+    {
+      writeVertexArray(writer, verts);
+    }
+    writer.EndObject();
+    response.send(Http::Code::Ok, sb.GetString());
   }
 
   void getAgents(const Rest::Request& request, Http::ResponseWriter response) {

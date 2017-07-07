@@ -77,5 +77,21 @@ bool deleteEdge(std::shared_ptr<database>& db, long id) {
 	return deleted;
 }
 
+std::vector<Edge> getEdges(std::shared_ptr<database>& db, std::vector<unsigned long> ids) {
+	std::vector<Edge> vec;
+	Edge edge;
+	transaction t(db->begin());
+	result<Edge> r (db->query<Edge>(
+		query<Edge>::first.in_range(ids.begin(), ids.end())
+		|| query<Edge>::second.in_range(ids.begin(), ids.end())
+	));
+
+	for (result<Edge>::iterator i (r.begin()); i != r.end(); ++i) {
+		i.load(edge);
+		vec.push_back(edge);
+	}
+	t.commit();
+	return vec;
+}
 
 #endif // EDGE_ACTIONS_HXX

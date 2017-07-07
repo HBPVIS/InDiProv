@@ -46,4 +46,40 @@ std::vector<Vertex> getVertex(std::shared_ptr<database>& db, vertexType vType) {
 	return vec;
 }
 
+std::vector<Vertex> getVertex(
+		std::shared_ptr<database>& db, 
+		std::string client,
+		std::string session,
+		std::string type,
+		std::string name,
+		unsigned long from,
+		unsigned long to) {
+	vertexType vType = vertexType::Agent;
+	if(type != "") {
+		try {
+			vType = stringToVertexType(type);
+		} catch (std::string e) {
+            std::cerr << e << std::endl;
+        }
+	}
+	std::vector<Vertex> vec;
+	Vertex vert;
+	transaction t(db->begin());
+
+	result<Vertex> r (db->query<Vertex>(
+		(query<Vertex>::client.like("%" + client + "%"))
+		&& (query<Vertex>::session.like("%" + session + "%"))
+		&& (query<Vertex>::type == vType)
+		&& (query<Vertex>::name.like("%" + name + "%"))
+		&& (query<Vertex>::start >= from)
+		&& (query<Vertex>::end <= to)
+	));
+	for (result<Vertex>::iterator i (r.begin()); i != r.end(); ++i) {
+		i.load(vert);
+		vec.push_back(vert);
+	}
+	t.commit();
+	return vec;
+}
+
 #endif // VERTEX_ACTIONS_HXX

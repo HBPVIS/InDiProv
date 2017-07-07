@@ -87,6 +87,8 @@ static edgeType stringToEdgeType(std::string edge) {
 class Edge {
 
 public:
+	Edge() { }
+
 	Edge(edgeType type, shared_ptr<Vertex> first, shared_ptr<Vertex> second) {
 		type_ = type;
 		first_ = first;
@@ -115,8 +117,6 @@ public:
 
 private:
 	friend class odb::access;
-
-	Edge() {}
 
 	#pragma db id auto
 	unsigned long id_;

@@ -41,7 +41,7 @@ static vertexType stringToVertexType(std::string vertex) {
 class Vertex {
 
 public:
-	Vertex() {}
+	Vertex() { }
 
 	Vertex(
 		const std::string& client,
@@ -80,7 +80,7 @@ public:
 		return end_;
 	}
 
-	unsigned GetId() {
+	unsigned long GetId() {
 		return id_;
 	}
 
