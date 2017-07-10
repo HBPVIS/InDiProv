@@ -232,17 +232,19 @@ private:
     std::vector<Vertex> verts;
     std::vector<Edge> edges;
     verts = getVertex(db, client, session, type, name, from, to);
-    if(neighbors) {
+    if(neighbors && !verts.empty()) {
       std::vector<unsigned long> ids;
       for(Vertex vert : verts) {
         ids.push_back(vert.GetId());
       }
       edges = getEdges(db, ids);
-      for(Edge edge : edges) {
-        ids.push_back(edge.GetFirst().get()->GetId());
-        ids.push_back(edge.GetSecond().get()->GetId());
+      if(!edges.empty()) {
+        for(Edge edge : edges) {
+          ids.push_back(edge.GetFirst().get()->GetId());
+          ids.push_back(edge.GetSecond().get()->GetId());
+        }
+        verts = getVertex(db, ids);
       }
-      verts = getVertex(db, ids);
     }
     rapidjson::StringBuffer sb;
     rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(sb);
