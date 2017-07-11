@@ -1,45 +1,68 @@
-CMake Config: Visual Studio 12 2013 (32 Bit) (Debug)
-
-ZeroMQ http://zeromq.org/intro:get-the-software
-	Download and install ZeroMQ
+Step 1:
+Install MySQL dependencies for ODB (already installed on cluster)
+	- mysql-server
+	- libmysqlclient-dev
 	
-ProtoBuf https://github.com/google/protobuf/releases
-	Download and build ProtoBuf
-		Provided CMake
-			Build without MSVC static runtime
+Step 2:
+Setup rootless MySQL database
+	- Download MySQL source code (with boost) https://dev.mysql.com/downloads/mysql/
+	- Unpack to mysql-VERSION)
+	- Configure GCC as compiler
+	- Set the following CMake Vars
+		- BOOST_INCLUDE_DIR: should point to */mysql_VERSION/boost/boost_VERSION
+		- LOCAL_BOOST_DIR: should be same as above
+		- WITH_BOOST:  should point to */mysql_VERSION/boost
+	- If you install to a local dir, e.g. $HOME/local, set the following paths
+		- CMAKE_INSTALL_PREFIX: $HOME/local/mysql
+		- MYSQL_DATADIR: $HOME/local/mysql/database
+		- MYSQL_KEYRINGDIR: $HOME/local/mysql/keyring
+	- Build by invoking "make" and "make install"
+	- MySQL should now be installed in $HOME/local/mysql
+		- consider adding /bin at the beginning of $PATH
+		- mkdir $HOME/local/mysql/etc
+		- create $HOME/local/mysql/etc/my.cnf with contents as in attached example
+	- Setup database by calling
+		- mysqld --initialize-insecure
+			- this initializes the server
+		- mysqld
+			- this actually starts the server
+		- mysql -u root --skip-password
+			- connects to the server
+		- ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+			- this is executed from mysql shell
+		- exit
+			- to exit mysql shell
+	
+Step 3:
+Install ODB from http://codesynthesis.com/products/odb/download.xhtml
+	- ODB Compiler (I recommend using a precompiled binary)
+	- libodb
+		- call configure script with argument --prefix=$HOME/local
+	- libodb-mysql
+		- call configure script with argument --prefix=$HOME/local
 		
-nett https://devhub.vr.rwth-aachen.de/VR-Group/nett
-	Download and build nett
-		Provided CMake
-			Include ZeroMQ and ProtoBuf (ProtoBuf /include is called /src)
-			
-MySQL https://dev.mysql.com/downloads/
-	Install MySQL
-	Install MySQL Connector C: https://dev.mysql.com/downloads/connector/c/
-		
-ODB http://codesynthesis.com/products/odb/download.xhtml
-	Install odb compiler and include in PATH
-	Download and build libodb
-		Provided Solution
-	Download and build libodb-mysql
-		Provided Solution
-			For libmysql.lib, we use MySQL Connector C
-			Add libodb (root directory is include directory) and MysqlConnectorC/include to VC++ includes
-			Add libodb/lib and MysqlConnectorC/lib to VC++ libraries
-
-InDiProv
-	Download and build InDiProv
-		Provided CMake
-			DB: MySQL Connector C include/lib and DB credentials (for DB initialization)
-			LIBODB: libodb core include/lib (libodb root directory is include directory)
-			LIBODBDB: libodb-mysql include/lib (libodb-mysql root directory is include directory)
-			NETT: nett include/lib
-			PROTOBUF: protobuf include/lib and protoc.exe (include directory is /src)
-			ZMQ: ZeroMQ include/lib
-		Copy/Paste DLLs (include debug versions if appropriate)
-			libmysql.dll
-			libzmq-v120-mt-4_0_4.dll
-			odb-2.4-vc12.dll
-			odb-mysql-2.4-vc12.dll
-		Run Tests project
-			Command line arguments: "--user root --password password --database provenance"
+Step 4:
+Install RapidJSON from https://github.com/miloyip/rapidjson
+	- git clone
+	- cmake
+		- replace /usr/local by $HOME/local in all cmake vars
+	- make, make install
+	
+Step 5:
+Install pistache from https://github.com/oktal/pistache
+	- git clone
+	- cmake
+		- replace /usr/local by $HOME/local in all cmake vars
+	- make, make install
+	
+Step 6:
+Install InDiProv from https://github.com/cyremur/InDiProv
+	- CMAKE Vars
+		- LIBODBDB_INCLUDE_PATH: $HOME/local/include
+		- LIBODBDB_LIBRARY: $HOME/local/libodb-mysql-2.4.so
+		- LIBODB_INCLUDE_PATH: $HOME/local/include
+		- LIBODB_LIBRARY: $HOME/local/lib/libodb-2.4.so
+		- PISTACHE_INCLUDE_PATH: $HOME/local/include/pistache
+		- PISTACHE_LIBRARY: $HOME/local/lib/libnet.so
+	- start server
+		- server --user root --password password --database provenance --socket $HOME/local/mysql/mysql.sock
