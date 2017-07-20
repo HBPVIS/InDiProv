@@ -1,0 +1,68 @@
+Step 1:
+Install MySQL dependencies for ODB (already installed on cluster)
+	- mysql-server
+	- libmysqlclient-dev
+	
+Step 2:
+Setup rootless MySQL database
+	- Download MySQL source code (with boost) https://dev.mysql.com/downloads/mysql/
+	- Unpack to mysql-VERSION)
+	- Configure GCC as compiler
+	- Set the following CMake Vars
+		- BOOST_INCLUDE_DIR: should point to */mysql_VERSION/boost/boost_VERSION
+		- LOCAL_BOOST_DIR: should be same as above
+		- WITH_BOOST:  should point to */mysql_VERSION/boost
+	- If you install to a local dir, e.g. $HOME/local, set the following paths
+		- CMAKE_INSTALL_PREFIX: $HOME/local/mysql
+		- MYSQL_DATADIR: $HOME/local/mysql/database
+		- MYSQL_KEYRINGDIR: $HOME/local/mysql/keyring
+	- Build by invoking "make" and "make install"
+	- MySQL should now be installed in $HOME/local/mysql
+		- consider adding /bin at the beginning of $PATH
+		- mkdir $HOME/local/mysql/etc
+		- create $HOME/local/mysql/etc/my.cnf with contents as in attached example
+	- Setup database by calling
+		- mysqld --initialize-insecure
+			- this initializes the server
+		- mysqld
+			- this actually starts the server
+		- mysql -u root --skip-password
+			- connects to the server
+		- ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+			- this is executed from mysql shell
+		- exit
+			- to exit mysql shell
+	
+Step 3:
+Install ODB from http://codesynthesis.com/products/odb/download.xhtml
+	- ODB Compiler (I recommend using a precompiled binary)
+	- libodb
+		- call configure script with argument --prefix=$HOME/local
+	- libodb-mysql
+		- call configure script with argument --prefix=$HOME/local
+		
+Step 4:
+Install RapidJSON from https://github.com/miloyip/rapidjson
+	- git clone
+	- cmake
+		- replace /usr/local by $HOME/local in all cmake vars
+	- make, make install
+	
+Step 5:
+Install pistache from https://github.com/oktal/pistache
+	- git clone
+	- cmake
+		- replace /usr/local by $HOME/local in all cmake vars
+	- make, make install
+	
+Step 6:
+Install InDiProv from https://github.com/cyremur/InDiProv
+	- CMAKE Vars
+		- LIBODBDB_INCLUDE_PATH: $HOME/local/include
+		- LIBODBDB_LIBRARY: $HOME/local/libodb-mysql-2.4.so
+		- LIBODB_INCLUDE_PATH: $HOME/local/include
+		- LIBODB_LIBRARY: $HOME/local/lib/libodb-2.4.so
+		- PISTACHE_INCLUDE_PATH: $HOME/local/include/pistache
+		- PISTACHE_LIBRARY: $HOME/local/lib/libnet.so
+	- start server
+		- server --user root --password password --database provenance --socket $HOME/local/mysql/mysql.sock
